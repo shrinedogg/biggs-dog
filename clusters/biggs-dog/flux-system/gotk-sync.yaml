@@ -8,7 +8,7 @@ metadata:
 spec:
   interval: 1m0s
   ref:
-    branch: main
+    branch: dev
   secretRef:
     name: flux-system
   url: https://github.com/shrinedogg/biggs-dog.git
@@ -19,7 +19,7 @@ metadata:
   name: flux-system
   namespace: flux-system
 spec:
-  interval: 10m0s
+  interval: 5m0s
   path: ./clusters/biggs-dog
   prune: true
   sourceRef:
