@@ -1,0 +1,12 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs
+provisioner: external-nfs
+parameters:
+  server: 192.168.2.40
+  path: /tank/media
+  readOnly: "false"
+volumeBindingMode: Immediate
+mountOptions:
+  - vers=4.1
