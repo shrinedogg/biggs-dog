@@ -1,8 +1,0 @@
-apiVersion: metallb.io/v1beta1
-kind: IPAddressPool
-metadata:
-  name: ersatz-ip
-  namespace: metallb-system
-spec:
-  addresses:
-  - 192.168.2.36/32
