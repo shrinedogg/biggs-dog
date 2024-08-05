@@ -11,3 +11,4 @@ resources:
   - velero.yaml
   - external-secrets-repo.yaml
   - bjw-s-repo.yaml
+  - csi-secrets-store-repo.yaml
