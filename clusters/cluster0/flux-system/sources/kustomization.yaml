@@ -10,3 +10,4 @@ resources:
   - cert-manager-repo.yaml
   - velero.yaml
   - external-secrets-repo.yaml
+  - bjw-s-repo.yaml
