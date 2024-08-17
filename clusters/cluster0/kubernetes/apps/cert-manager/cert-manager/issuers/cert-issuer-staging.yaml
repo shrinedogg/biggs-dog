@@ -17,4 +17,4 @@ spec:
           email: jshriner@protonmail.com
           apiTokenSecretRef:
             key: api-token
-            name: cloudflare-api-token-secret
+            name: cloudflare-api-token
