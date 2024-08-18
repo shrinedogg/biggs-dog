@@ -51,7 +51,7 @@ spec:
       protocol: TCP
   podSelector: {}
   policyTypes:
-  - ingress
+  - Ingress
 ---
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
@@ -70,7 +70,7 @@ spec:
     matchLabels:
       app: notification-controller
   policyTypes:
-  - ingress
+  - Ingress
 ---
 apiVersion: v1
 kind: ResourceQuota
