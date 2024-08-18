@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: lidarr-scripts
+  namespace: media
+  labels:
+    app: lidarr
+spec:
+  accessModes:
+   - ReadWriteOnce
+  resources:
+    requests:
+      storage: 250Mi
+  storageClassName: local-path
+  

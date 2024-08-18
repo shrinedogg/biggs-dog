@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: lidarr
+  name: lidarr
+  namespace: media
+spec:
+  template:
+    metadata:
+      labels:
+        app: lidarr
+    spec:
+      containers:
+        - image: lscr.io/linuxserver/lidarr:latest
+          imagePullPolicy: Always
+          name: lidarr
+          env:
+          - name: TZ
+            value: "America/Detroit"
+          - name: PUID
+            value: "1000"
+          - name: PGID
+            value: "1000"
+          ports:
+          - name: lidarr-port
+            containerPort: 8686
+            protocol: TCP
+          volumeMounts:
+          - name: lidarr-config
+            mountPath: /config
+          - name: lidarr-media
+            mountPath: /music
+          - name: lidarr-scripts
+            mountPath: /custom-cont-init.d
+          - name: lidarr-services
+            mountPath: /custom-services.d
+          resources:
+            requests:
+              memory: 1500Mi
+              cpu: 500m
+            limits:
+              memory: 2Gi
+              cpu: "1"
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      volumes:
+      - name: lidarr-config
+        persistentVolumeClaim:
+          claimName: "lidarr-config"
+      - name: lidarr-media
+        persistentVolumeClaim:
+          claimName: "media-pvc"
+      - name: lidarr-scripts
+        persistentVolumeClaim:
+          claimName: "lidarr-scripts"
+      - name: lidarr-services
+        persistentVolumeClaim:
+          claimName: "lidarr-services"
+  selector:
+    matchLabels:
+      app: lidarr

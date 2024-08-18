@@ -1,0 +1,11 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ./jellyfin-deployment.yaml
+  - ./jellyfin-service.yaml
+  - ./jellyfin-external-ingress.yaml
+  - ./jellyfin-cache-pvc.yaml
+  - ./jellyfin-config-pvc.yaml
+  

@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: readarr
+  name: readarr
+  namespace: media
+spec:
+  template:
+    metadata:
+      labels:
+        app: readarr
+    spec:
+      containers:
+        - image: lscr.io/linuxserver/readarr:develop
+          imagePullPolicy: Always
+          name: readarr
+          env:
+          - name: TZ
+            value: "America/Detroit"
+          - name: PUID
+            value: "1000"
+          - name: PGID
+            value: "1000"
+          ports:
+          - name: readarr-port
+            containerPort: 8787
+            protocol: TCP
+          volumeMounts:
+          - name: readarr-config
+            mountPath: /config
+          - name: readarr-media
+            mountPath: /books
+          resources:
+            requests:
+              memory: 175Mi
+              cpu: 100m
+            limits:
+              memory: 350Mi
+              cpu: 350m
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      volumes:
+      - name: readarr-config
+        persistentVolumeClaim:
+          claimName: "readarr-config"
+      - name: readarr-media
+        persistentVolumeClaim:
+          claimName: "media-pvc"
+  selector:
+    matchLabels:
+      app: readarr
