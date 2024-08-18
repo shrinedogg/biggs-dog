@@ -9,7 +9,7 @@ resources:
   # Flux-Kustomizations
   - ./ersatz/ks.yaml
   - ./homarr/ks.yaml
-  - ./jellyin/ks.yaml
+  - ./jellyfin/ks.yaml
   - ./kavita/ks.yaml
   - ./radarr/ks.yaml
   - ./readarr/ks.yaml
