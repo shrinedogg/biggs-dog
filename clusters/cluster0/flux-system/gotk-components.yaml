@@ -30,7 +30,7 @@ spec:
     - podSelector: {}
   podSelector: {}
   policyTypes:
-  - ingress
+  - Ingress
   - Egress
 ---
 apiVersion: networking.k8s.io/v1
