@@ -9,7 +9,7 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: ./clusters/cluster0/kubernetes/apps/k8s-gateway/app
+  path: ./clusters/cluster0/kubernetes/apps/network/k8s-gateway/app
   prune: true
   sourceRef:
     kind: GitRepository
