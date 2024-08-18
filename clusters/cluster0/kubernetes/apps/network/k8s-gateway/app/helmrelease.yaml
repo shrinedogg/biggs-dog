@@ -1,0 +1,47 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: k8s-gateway
+  namespace: kube-system
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: k8s-gateway
+      version: 2.4.0
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-gateway
+        namespace: flux-system
+  maxHistory: 3
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    nodeSelector:
+      kubernetes.io/hostname: k3s-worker-04
+    watchedResources: ["Ingress"]
+    domain: biggs.dog
+    # fallthrough:
+      # enabled: true
+      # zones: [biggs.dog]
+    dnsChallenge:
+      enabled: true
+      domain: dns01.clouddns.com
+    ttl: 60
+    service:
+      type: LoadBalancer
+      loadBalancerIP: 192.168.2.32
+      port: 53
+      externalTrafficPolicy: Local
+      useTcp: true
+    serviceAccount:
+      create: true
+      name: ""
+      annotations: {}
