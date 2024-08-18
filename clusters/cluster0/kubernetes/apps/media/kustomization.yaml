@@ -8,4 +8,11 @@ resources:
   - ./media-pvc.yaml
   # Flux-Kustomizations
   - ./ersatz/ks.yaml
+  - ./homarr/ks.yaml
+  - ./jellyin/ks.yaml
+  - ./kavita/ks.yaml
+  - ./radarr/ks.yaml
+  - ./readarr/ks.yaml
+  - ./sabnzbd/ks.yaml
+  - ./sonarr/ks.yaml
   
