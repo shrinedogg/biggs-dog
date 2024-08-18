@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: sabnzbd
+  name: sabnzbd
+  namespace: media
+spec:
+  template:
+    metadata:
+      labels:
+        app: sabnzbd
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: control-01
+      containers:
+        - image: lscr.io/linuxserver/sabnzbd:latest
+          imagePullPolicy: Always
+          name: sabnzbd
+          env:
+            - name: TZ
+              value: "America/Detroit"
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+          ports:
+            - name: sabnzbd-port-1
+              containerPort: 8080
+              protocol: TCP
+            - name: sabnzbd-port-2
+              containerPort: 9090
+              protocol: TCP
+          volumeMounts:
+            - name: sabnzbd-config
+              mountPath: /config
+            - name: sabnzbd-media
+              mountPath: /downloads
+            - name: sabnzbd-scratch
+              mountPath: /scratch
+          resources:
+            requests:
+              memory: 100Mi
+              cpu: 50m
+            limits:
+              memory: 5Gi
+              cpu: "4"
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      volumes:
+        - name: sabnzbd-config
+          persistentVolumeClaim:
+            claimName: "sabnzbd-config"
+        - name: sabnzbd-media
+          persistentVolumeClaim:
+            claimName: "media-pvc"
+        - name: sabnzbd-scratch
+          persistentVolumeClaim:
+            claimName: "scratch-pvc"
+  selector:
+    matchLabels:
+      app: sabnzbd

@@ -4,7 +4,7 @@ metadata:
   name: nfs
 provisioner: external-nfs
 parameters:
-  server: 192.168.2.40
+  server: 192.168.2.30
   path: /tank/media
   readOnly: "false"
 volumeBindingMode: Immediate

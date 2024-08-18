@@ -40,7 +40,7 @@ spec:
       # ingress:
         # enabled: true
         # ingressClassName: external
-        # hosts: ["alertmanager.federationspace.net"]
+        # hosts: ["alertmanager.biggs.dog"]
         # pathType: Prefix
       alertmanagerSpec:
         replicas: 2
@@ -88,7 +88,7 @@ spec:
       # ingress:
         # enabled: true
         # ingressClassName: external
-        # hosts: ["prometheus.federationspace.net"]
+        # hosts: ["prometheus.biggs.dog"]
         # pathType: Prefix
       thanosService:
         enabled: true
