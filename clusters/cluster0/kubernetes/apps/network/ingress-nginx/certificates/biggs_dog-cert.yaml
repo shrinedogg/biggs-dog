@@ -2,7 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: wildcard-biggs-dog
-  namespace: kube-system
+  namespace: cert-manager
 spec:
   secretName: cloudflare-tls
   dnsNames:
