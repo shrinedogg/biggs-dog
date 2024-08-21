@@ -75,7 +75,7 @@ spec:
         use-forwarded-headers: true
         force-ssl-redirect: true
       extraArgs:
-        default-ssl-certificate: "kube-system/cloudflare-tls"
+        default-ssl-certificate: "cert-manager/cloudflare-tls"
       #  enable-ssl-passthrough: true
       #topologySpreadConstraints:
       #  - maxSkew: 2
