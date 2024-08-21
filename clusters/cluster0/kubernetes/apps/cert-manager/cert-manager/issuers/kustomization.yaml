@@ -5,3 +5,4 @@ kind: Kustomization
 resources:
   - ./cert-issuer-prod.yaml
   - ./cert-issuer-staging.yaml
+  - ./cloudflare-tls.yaml
