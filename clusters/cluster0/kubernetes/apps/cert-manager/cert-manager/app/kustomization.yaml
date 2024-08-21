@@ -5,4 +5,3 @@ kind: Kustomization
 resources:
   - ./helmrelease.yaml
   - ./cloudflare-api-token-secret.yaml
-  ##- ./cloudflare-tls.yaml
