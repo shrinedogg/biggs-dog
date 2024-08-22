@@ -73,9 +73,9 @@ spec:
         http-redirect-code: "308"
         ssl-protocols: "TLSv1.3 TLSv1.2"
         use-forwarded-headers: true
-      #  force-ssl-redirect: true
+        force-ssl-redirect: true
       extraArgs:
-      #  default-ssl-certificate: "cert-manager/cloudflare-tls"
+        default-ssl-certificate: "cert-manager/cloudflare-tls"
       #  enable-ssl-passthrough: true
       #topologySpreadConstraints:
       #  - maxSkew: 2
