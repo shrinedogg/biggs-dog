@@ -43,10 +43,10 @@ spec:
       #electionID: ingress-controller-leader
       # ingressClass: external
       # ingressClassByName: true
-      # ingressClassResource:
-      #   name: external
-      #   enabled: true
-      #   default: true
+      ingressClassResource:
+        name: external
+        enabled: true
+        default: true
       #   controllerValue: "k8s.io/ingress-nginx-external"
       # admissionWebhooks:
         # objectSelector:
