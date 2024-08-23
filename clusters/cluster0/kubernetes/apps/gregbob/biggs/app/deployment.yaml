@@ -19,13 +19,13 @@ spec:
           - name: biggs-port
             containerPort: 80
             protocol: TCP
-          resources:
-            requests:
-              memory: 350Mi
-              cpu: 10m
-            limits:
-              memory: 450Mi
-              cpu: 350m
+          # resources:
+          #   requests:
+          #     memory: 350Mi
+          #     cpu: 10m
+          #   limits:
+          #     memory: 450Mi
+          #     cpu: 350m
       dnsPolicy: ClusterFirst
       restartPolicy: Always
   selector:
