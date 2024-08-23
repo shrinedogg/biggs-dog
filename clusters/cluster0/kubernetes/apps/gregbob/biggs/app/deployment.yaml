@@ -17,7 +17,7 @@ spec:
           name: biggs
           ports:
           - name: biggs-port
-            containerPort: 8080
+            containerPort: 80
             protocol: TCP
           resources:
             requests:
