@@ -17,15 +17,15 @@ spec:
           name: biggs
           ports:
           - name: biggs-port
-            containerPort: 80
+            containerPort: 8080
             protocol: TCP
-          # resources:
-          #   requests:
-          #     memory: 350Mi
-          #     cpu: 10m
-          #   limits:
-          #     memory: 450Mi
-          #     cpu: 350m
+          resources:
+            requests:
+              memory: 350Mi
+              cpu: 10m
+            limits:
+              memory: 450Mi
+              cpu: 350m
       dnsPolicy: ClusterFirst
       restartPolicy: Always
   selector:
