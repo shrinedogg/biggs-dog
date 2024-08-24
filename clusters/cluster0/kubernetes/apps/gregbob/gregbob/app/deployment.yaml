@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: gregbob
+  name: gregbob
+  namespace: gregbob
+spec:
+  template:
+    metadata:
+      labels:
+        app: gregbob
+    spec:
+      containers:
+        - image: szkud/resume:latest
+          imagePullPolicy: Always
+          name: gregbob
+          ports:
+          - name: gregbob-port
+            containerPort: 8080
+            protocol: TCP
+          resources:
+            requests:
+              memory: 350Mi
+              cpu: 10m
+            limits:
+              memory: 450Mi
+              cpu: 350m
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: gregbob
