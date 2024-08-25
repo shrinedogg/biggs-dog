@@ -35,11 +35,11 @@ spec:
             mountPath: /movies
           resources:
             requests:
-              memory: 350Mi
-              cpu: 50m
+              memory: 1500Mi
+              cpu: 100m
             limits:
-              memory: 650Mi
-              cpu: 500m
+              memory: 3Gi
+              cpu: "2"
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       volumes:
