@@ -9,7 +9,7 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: ./clusters/cluster0/kubernetes/apps/gregbob/resume/
+  path: ./clusters/cluster0/kubernetes/apps/gregbob/gregbob/resume/
   prune: true
   sourceRef:
     kind: GitRepository
@@ -29,7 +29,7 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: ./clusters/cluster0/kubernetes/apps/gregbob/blog/
+  path: ./clusters/cluster0/kubernetes/apps/gregbob/gregbob/blog/
   prune: true
   sourceRef:
     kind: GitRepository
