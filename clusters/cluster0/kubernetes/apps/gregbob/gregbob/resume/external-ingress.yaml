@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: resume
+  namespace: gregbob
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: gregbob.biggs.dog
+spec:
+  ingressClassName: external
+  rules:
+  - host: gregbob.biggs.dog
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend: 
+          service:
+            name: resume-service
+            port:
+              number: 8080
+  - host: resume.gregbob.net
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend: 
+          service:
+            name: resume-service
+            port:
+              number: 8080
