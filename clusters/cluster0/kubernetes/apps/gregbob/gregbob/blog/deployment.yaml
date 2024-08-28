@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: gregbob
+    app: blog
   name: gregbob
-  namespace: gregbob
+  namespace: blog
 spec:
   template:
     metadata:
       labels:
-        app: gregbob
+        app: blog
     spec:
       containers:
-        - image: szkud/resume:latest
+        - image: szkud/gregblog:latest
           imagePullPolicy: Always
-          name: gregbob
+          name: blog
           ports:
-          - name: gregbob-port
+          - name: blog-port
             containerPort: 8080
             protocol: TCP
           resources:
@@ -30,4 +30,4 @@ spec:
       restartPolicy: Always
   selector:
     matchLabels:
-      app: gregbob
+      app: blog

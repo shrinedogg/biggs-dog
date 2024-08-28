@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: gregbob-service
+  name: blog-service
   namespace: gregbob
 spec:
   type: ClusterIP
   selector:
-    app: gregbob
+    app: blog
   ports:
-    - name: gregbob-port
+    - name: blog-port
       port: 8080
       protocol: TCP
