@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: external
   rules:
-  - host: gregblob.biggs.dog
+  - host: gregblog.biggs.dog
     http:
       paths:
       - path: /
@@ -18,7 +18,7 @@ spec:
             name: blog-service
             port:
               number: 8080
-  - host: gregblob.gregbob.net
+  - host: gregblog.gregbob.net
     http:
       paths:
       - path: /
