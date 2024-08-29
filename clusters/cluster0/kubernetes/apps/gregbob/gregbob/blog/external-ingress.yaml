@@ -17,7 +17,7 @@ spec:
           service:
             name: blog-service
             port:
-              number: 8080
+              number: 1313
   - host: gregblog.gregbob.net
     http:
       paths:
@@ -27,4 +27,4 @@ spec:
           service:
             name: blog-service
             port:
-              number: 8080
+              number: 1313
