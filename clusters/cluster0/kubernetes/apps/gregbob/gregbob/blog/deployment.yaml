@@ -17,7 +17,7 @@ spec:
           name: blog
           ports:
           - name: blog-port
-            containerPort: 8080
+            containerPort: 1313
             protocol: TCP
           resources:
             requests:
