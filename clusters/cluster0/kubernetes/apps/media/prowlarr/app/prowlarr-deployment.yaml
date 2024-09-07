@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: prowlarr
+  name: prowlarr
+  namespace: media
+spec:
+  template:
+    metadata:
+      labels:
+        app: prowlarr
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: control-01
+      containers:
+        - image: lscr.io/linuxserver/prowlarr:latest
+          imagePullPolicy: Always
+          name: prowlarr
+          env:
+          - name: TZ
+            value: "America/Detroit"
+          - name: PUID
+            value: "1000"
+          - name: PGID
+            value: "1000"
+          ports:
+          - name: prowlarr-port
+            containerPort: 9696
+            protocol: TCP
+          volumeMounts:
+          - name: prowlarr-config
+            mountPath: /config
+          resources:
+            requests:
+              memory: 1500Mi
+              cpu: 100m
+            limits:
+              memory: 3Gi
+              cpu: "2"
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      volumes:
+      - name: prowlarr-config
+        persistentVolumeClaim:
+          claimName: "prowlarr-config"
+  selector:
+    matchLabels:
+      app: prowlarr
