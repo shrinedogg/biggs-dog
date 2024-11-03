@@ -11,7 +11,7 @@ spec:
   chart:
     spec:
       chart: ingress-nginx
-      version: 4.11.1
+      version: 4.11.3
       sourceRef:
         kind: HelmRepository
         name: ingress-nginx
@@ -91,11 +91,11 @@ spec:
       #    operator: Exists
       resources:
         requests:
-          memory: 250Mi
+          memory: 300Mi
           cpu: 100m
         limits:
           cpu: 300m
-          memory: 650Mi
+          memory: 900Mi
       updateStrategy:
         type: RollingUpdate
         rollingUpdate:
