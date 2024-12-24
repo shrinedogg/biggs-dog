@@ -40,7 +40,7 @@ spec:
           - name: sons-of-the-forest-config
             mountPath: /steamcmd
           - name: sons-of-the-forest-data
-            mountPath: /game
+            mountPath: /sonsoftheforest
           - name: sons-of-the-forest-wine
             mountPath: /winedata
           resources:
