@@ -22,9 +22,9 @@ spec:
             value: "1"
           - name: SKIP_NETWORK_ACCESSIBILITY_TEST
             value: "false"
-          - name: HOSTNAME
+          - name: SERVER_NAME
             value: "The_Bridge"
-          - name: PWD
+          - name: PASSWORD
             value: "friendship!"
           ports:
             - name: sotf-port-1
