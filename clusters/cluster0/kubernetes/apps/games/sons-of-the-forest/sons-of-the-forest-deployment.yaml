@@ -33,13 +33,13 @@ spec:
           - name: PASSWORD
             value: "friendship!"
           ports:
-            - name: sons-of-the-forest-port-1
+            - name: sotf-port-1
               containerPort: 8766
               protocol: UDP
-            - name: sons-of-the-forest-port-2
+            - name: sotf-port-2
               containerPort: 27016
               protocol: UDP
-            - name: sons-of-the-forest-port-3
+            - name: sotf-port-3
               containerPort: 9700
               protocol: UDP
           volumeMounts:

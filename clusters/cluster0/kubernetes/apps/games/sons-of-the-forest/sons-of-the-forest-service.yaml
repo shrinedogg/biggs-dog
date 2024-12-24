@@ -9,14 +9,14 @@ spec:
     app: sons-of-the-forest
   ports:
     - port: 8766
-      name: sons-of-the-forest-port-1
+      name: sotf-port-1
       nodePort: 32456
       protocol: UDP
     - port: 27016
-      name: sons-of-the-forest-port-2
+      name: sotf-port-2
       nodePort: 32457
       protocol: UDP
     - port: 9700
-      name: sons-of-the-forest-port-3
+      name: sotf-port-3
       nodePort: 32458
       protocol: UDP
