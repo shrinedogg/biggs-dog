@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: sons-of-the-forest
+  name: sons-of-the-forest
+  namespace: sons-of-the-forest
+spec:
+  template:
+    metadata:
+      labels:
+        app: sons-of-the-forest
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: worker-03
+      containers:
+        - image: jammsen/sons-of-the-forest-dedicated-server:latest
+          imagePullPolicy: Always
+          name: sons-of-the-forest
+          env:
+          - name: TZ
+            value: "America/Detroit"
+          - name: UID
+            value: "1000"
+          - name: GID
+            value: "1000"
+          - name: ALWAYS_UPDATE_ON_START
+            value: "1"
+          - name: SKIP_NETWORK_ACCESSIBILITY_TEST
+            value: "false"
+          - name: SERVER_NAME
+            value: "The_Bridge"
+          - name: PASSWORD
+            value: "friendship!"
+          ports:
+            - name: sons-of-the-forest-port-1
+              containerPort: 8766
+              protocol: UDP
+            - name: sons-of-the-forest-port-2
+              containerPort: 27016
+              protocol: UDP
+            - name: sons-of-the-forest-port-3
+              containerPort: 9700
+              protocol: UDP
+          volumeMounts:
+          - name: sons-of-the-forest-config
+            mountPath: /steamcmd
+          - name: sons-of-the-forest-data
+            mountPath: /game
+          - name: sons-of-the-forest-wine
+            mountPath: /winedata
+          resources:
+            limits:
+              memory: 12Gi
+              cpu: "4"       
+            requests:
+              memory: 6Gi
+              cpu: "2"
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      volumes:
+      - name: sons-of-the-forest-config
+        persistentVolumeClaim:
+          claimName: "sons-of-the-forest-config-pvc"
+      - name: sons-of-the-forest-data
+        persistentVolumeClaim:
+          claimName: "sons-of-the-forest-data-pvc"
+      - name: sons-of-the-forest-backup
+        persistentVolumeClaim:
+          claimName: "sons-of-the-forest-wine-pvc"
+  selector:
+    matchLabels:
+      app: sons-of-the-forest

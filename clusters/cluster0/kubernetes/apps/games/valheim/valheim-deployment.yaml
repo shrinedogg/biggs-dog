@@ -1,0 +1,99 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: valheim
+  name: valheim
+  namespace: valheim
+spec:
+  template:
+    metadata:
+      labels:
+        app: valheim
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: k3s-worker-02
+      containers:
+        - image: mbround18/valheim:latest
+          imagePullPolicy: Always
+          name: valheim
+          env:
+          - name: TZ
+            value: "America/Detroit"
+          - name: UID
+            value: "1000"
+          - name: GID
+            value: "1000"
+          - name: NAME
+            value: "The_Bridge"
+          - name: PORT
+            value: "2456"
+          - name: WORLD
+            value: "Dedicated"
+          - name: PUBLIC
+            value: "1"
+          - name: PASSWORD
+            value: "friendship!"
+          - name: ENABLE_CROSSPLAY
+            value: "1"
+          - name: TYPE
+            value: "Vanilla"
+          - name: UPDATE_ON_STARTUP
+            value: "1"
+          - name: AUTO_UPDATE
+            value: "1"
+          - name: AUTO_UPDATE_SCHEDULE
+            value: "0 1 * * *"
+          - name: AUTO_UPDATE_PAUSE_WITH_PLAYERS
+            value: "1"
+          - name: AUTO_BACKUP
+            value: "1"
+          - name: AUTO_BACKUP_SCHEDULE
+            value: "*/15 * * * *"
+          - name: AUTO_BACKUP_REMOVE_OLD
+            value: "1"
+          - name: AUTO_BACKUP_DAYS_TO_LIVE
+            value: "3"
+          - name: AUTO_BACKUP_ON_UPDATE
+            value: "1"
+          - name: AUTO_BACKUP_ON_SHUTDOWN
+            value: "1"
+          ports:
+            - name: valheim-port-1
+              containerPort: 2456
+              protocol: UDP
+            - name: valheim-port-2
+              containerPort: 2457
+              protocol: UDP
+            - name: valheim-port-3
+              containerPort: 2458
+              protocol: UDP
+          volumeMounts:
+          - name: valheim-config
+            mountPath: /home/steam/.config/unity3d/IronGate/Valheim
+          - name: valheim-data
+            mountPath: /home/steam/valheim
+          - name: valheim-backup
+            mountPath: /home/steam/backups
+          resources:
+            limits:
+              memory: 8Gi
+              cpu: "4"       
+            requests:
+              memory: 6Gi
+              cpu: "2"
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      volumes:
+      - name: valheim-config
+        persistentVolumeClaim:
+          claimName: "valheim-config-pvc"
+      - name: valheim-data
+        persistentVolumeClaim:
+          claimName: "valheim-data-pvc"
+      - name: valheim-backup
+        persistentVolumeClaim:
+          claimName: "valheim-backup-pvc"
+  selector:
+    matchLabels:
+      app: valheim

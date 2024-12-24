@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: valheim
+  namespace: valheim
+spec:
+  type: NodePort
+  selector:
+    app: valheim
+  ports:
+    - port: 2456
+      name: valheim-port-1
+      targetPort: 2456
+      nodePort: 32456
+      protocol: UDP
+    - port: 2457
+      name: valheim-port-2
+      targetPort: 2457
+      nodePort: 32457
+      protocol: UDP
+    - port: 2458
+      name: valheim-port-3
+      targetPort: 2458
+      nodePort: 32458
+      protocol: UDP
