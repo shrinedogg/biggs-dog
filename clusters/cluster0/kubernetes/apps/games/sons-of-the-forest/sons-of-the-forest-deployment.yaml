@@ -4,7 +4,7 @@ metadata:
   labels:
     app: sons-of-the-forest
   name: sons-of-the-forest
-  namespace: sons-of-the-forest
+  namespace: games
 spec:
   template:
     metadata:
