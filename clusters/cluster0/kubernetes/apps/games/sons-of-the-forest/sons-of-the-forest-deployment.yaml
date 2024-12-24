@@ -65,7 +65,7 @@ spec:
       - name: sons-of-the-forest-data
         persistentVolumeClaim:
           claimName: "sons-of-the-forest-data-pvc"
-      - name: sons-of-the-forest-backup
+      - name: sons-of-the-forest-wine
         persistentVolumeClaim:
           claimName: "sons-of-the-forest-wine-pvc"
   selector:
