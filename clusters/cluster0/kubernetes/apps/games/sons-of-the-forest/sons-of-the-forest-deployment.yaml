@@ -18,11 +18,13 @@ spec:
           imagePullPolicy: Always
           name: sons-of-the-forest
           env: 
-          - name: SkipNetworkAccessibilityTest
+          - name: ALWAYS_UPDATE_ON_START
+            value: "1"
+          - name: SKIP_NETWORK_ACCESSIBILITY_TEST
             value: "false"
-          - name: ServerName
+          - name: HOSTNAME
             value: "The_Bridge"
-          - name: Password
+          - name: PWD
             value: "friendship!"
           ports:
             - name: sotf-port-1
