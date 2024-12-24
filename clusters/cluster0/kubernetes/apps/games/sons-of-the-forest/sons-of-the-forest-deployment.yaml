@@ -17,20 +17,12 @@ spec:
         - image: jammsen/sons-of-the-forest-dedicated-server:latest
           imagePullPolicy: Always
           name: sons-of-the-forest
-          env:
-          - name: TZ
-            value: "America/Detroit"
-          - name: UID
-            value: "1000"
-          - name: GID
-            value: "1000"
-          - name: ALWAYS_UPDATE_ON_START
-            value: "1"
-          - name: SKIP_NETWORK_ACCESSIBILITY_TEST
+          env: 
+          - name: SkipNetworkAccessibilityTest
             value: "false"
-          - name: SERVER_NAME
+          - name: ServerName
             value: "The_Bridge"
-          - name: PASSWORD
+          - name: Password
             value: "friendship!"
           ports:
             - name: sotf-port-1
