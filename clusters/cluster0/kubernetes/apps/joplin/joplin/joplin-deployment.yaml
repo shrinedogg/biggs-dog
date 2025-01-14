@@ -21,7 +21,7 @@ spec:
           - name: POSTGRES_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: joplin-superuser-password
+                name: joplin-user-password
                 key: password
           - name: POSTGRES_DATABASE
             value: "joplin"

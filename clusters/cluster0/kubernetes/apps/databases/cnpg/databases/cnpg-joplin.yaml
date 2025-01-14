@@ -4,21 +4,22 @@ metadata:
   name: cnpg-joplin
   namespace: cnpg-system
 spec:
-  enableSuperuserAccess: true
-  superuserSecret:
-    name: joplin-superuser-password
+  # enableSuperuserAccess: true
+  # superuserSecret:
+  #   name: joplin-superuser-password
   instances: 1
   bootstrap:
     initdb:
       database: joplin
+      owner: joplin
       dataChecksums: true
       secret:
-        name: joplin-superuser-password
+        name: joplin-user-password
   imageName: ghcr.io/cloudnative-pg/postgresql:16.6
   resources:
     requests:
       memory: 300Mi
-      cpu:  150m 
+      cpu:  150m
     limits:
       memory: 300Mi
       cpu: 150m
