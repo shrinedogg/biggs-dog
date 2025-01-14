@@ -1,0 +1,33 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: cnpg-joplin
+  namespace: cnpg-system
+spec:
+  bootstrap:
+    initdb:
+      database: joplin
+      owner: joplin
+      dataChecksums: true
+      encoding: 'UTF8'
+  imageName: postgres:16.6
+  resources:
+    requests:
+      memory: 300Mi
+      cpu:  150m 
+    limits:
+      memory: 300Mi
+      cpu: 150m
+  storage:
+    size: 5Gi
+  type: postgresql
+  mode: standalone
+  version:
+    postgresql: "16"
+  cluster:
+    instances: 1
+  backups:
+    enabled: false
+  superuserSecret:
+    name: cnpg-joplin-superuser
+    key: password
