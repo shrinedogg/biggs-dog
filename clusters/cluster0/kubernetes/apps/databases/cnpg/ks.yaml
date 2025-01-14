@@ -5,7 +5,7 @@ metadata:
   name: &app cnpg
   namespace: flux-system
 spec:
-  targetNamespace: external-secrets
+  targetNamespace: cnpg-system
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app

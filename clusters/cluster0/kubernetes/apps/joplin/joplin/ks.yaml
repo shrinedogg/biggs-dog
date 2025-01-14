@@ -5,7 +5,7 @@ metadata:
   name: &app joplin
   namespace: flux-system
 spec:
-  targetNamespace: games
+  targetNamespace: joplin
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
