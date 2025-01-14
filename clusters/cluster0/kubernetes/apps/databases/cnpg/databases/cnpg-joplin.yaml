@@ -9,8 +9,6 @@ version:
   postgresql: "16"
 cluster:
   instances: 1
-backups:
-  enabled: false
 superuserSecret:
   name: cnpg-joplin-superuser
   key: password

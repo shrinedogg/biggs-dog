@@ -25,6 +25,8 @@ metadata:
   name: &app certificates
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: cert-manager
   targetNamespace: cert-manager
   commonMetadata:
     labels:

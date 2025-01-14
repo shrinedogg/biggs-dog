@@ -25,6 +25,8 @@ metadata:
   name: &app databases
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: cnpg
   targetNamespace: cnpg-system
   commonMetadata:
     labels:
