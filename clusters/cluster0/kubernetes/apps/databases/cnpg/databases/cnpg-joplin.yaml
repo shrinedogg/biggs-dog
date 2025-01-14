@@ -4,6 +4,7 @@ metadata:
   name: cnpg-joplin
   namespace: cnpg-system
 spec:
+  enableSuperuserAccess: true
   superuserSecret:
     name: cnpg-joplin-superuser
     key: password
