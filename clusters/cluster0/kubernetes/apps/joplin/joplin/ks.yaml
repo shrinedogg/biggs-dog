@@ -5,6 +5,8 @@ metadata:
   name: &app joplin
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: databases
   targetNamespace: joplin
   commonMetadata:
     labels:
