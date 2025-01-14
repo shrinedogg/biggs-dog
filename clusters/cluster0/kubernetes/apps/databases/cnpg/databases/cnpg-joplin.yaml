@@ -6,7 +6,7 @@ metadata:
 spec:
   enableSuperuserAccess: true
   superuserSecret:
-    name: cnpg-joplin-superuser
+    name: joplin-superuser-password
   instances: 1
   bootstrap:
     initdb:
