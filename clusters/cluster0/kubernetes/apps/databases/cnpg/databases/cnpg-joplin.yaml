@@ -12,6 +12,8 @@ spec:
     initdb:
       database: joplin
       dataChecksums: true
+      secret:
+        name: joplin-superuser-password
   imageName: ghcr.io/cloudnative-pg/postgresql:16.6
   resources:
     requests:
