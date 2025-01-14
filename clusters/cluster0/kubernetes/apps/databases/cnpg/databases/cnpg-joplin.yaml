@@ -3,6 +3,18 @@ kind: Cluster
 metadata:
   name: cnpg-joplin
   namespace: cnpg-system
+type: postgresql
+mode: standalone
+version:
+  postgresql: "16"
+cluster:
+  instances: 1
+backups:
+  enabled: false
+superuserSecret:
+  name: cnpg-joplin-superuser
+  key: password
+  namespace: joplin
 spec:
   bootstrap:
     initdb:
@@ -20,14 +32,3 @@ spec:
       cpu: 150m
   storage:
     size: 5Gi
-  type: postgresql
-  mode: standalone
-  version:
-    postgresql: "16"
-  cluster:
-    instances: 1
-  backups:
-    enabled: false
-  superuserSecret:
-    name: cnpg-joplin-superuser
-    key: password
