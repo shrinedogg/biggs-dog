@@ -3,11 +3,11 @@ kind: Cluster
 metadata:
   name: cnpg-joplin
   namespace: cnpg-system
-superuserSecret:
-  name: cnpg-joplin-superuser
-  key: password
-  namespace: joplin
 spec:
+  superuserSecret:
+    name: cnpg-joplin-superuser
+    key: password
+    namespace: joplin
   instances: 1
   bootstrap:
     initdb:
