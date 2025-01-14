@@ -12,7 +12,7 @@ spec:
     initdb:
       database: joplin
       dataChecksums: true
-  imageName: postgres:16.6
+  imageName: ghcr.io/cloudnative-pg/postgresql:16.6
   resources:
     requests:
       memory: 300Mi
