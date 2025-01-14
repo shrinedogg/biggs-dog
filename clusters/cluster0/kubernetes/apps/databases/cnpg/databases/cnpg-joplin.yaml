@@ -12,8 +12,6 @@ spec:
     initdb:
       database: joplin
       owner: joplin
-      dataChecksums: true
-      encoding: 'UTF8'
   imageName: postgres:16.6
   resources:
     requests:
