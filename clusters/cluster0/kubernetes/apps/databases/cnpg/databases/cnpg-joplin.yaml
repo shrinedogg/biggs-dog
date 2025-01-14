@@ -7,7 +7,6 @@ spec:
   enableSuperuserAccess: true
   superuserSecret:
     name: cnpg-joplin-superuser
-    namespace: joplin
   instances: 1
   bootstrap:
     initdb:
