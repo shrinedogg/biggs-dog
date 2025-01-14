@@ -3,17 +3,12 @@ kind: Cluster
 metadata:
   name: cnpg-joplin
   namespace: cnpg-system
-type: postgresql
-mode: standalone
-version:
-  postgresql: "16"
-cluster:
-  instances: 1
 superuserSecret:
   name: cnpg-joplin-superuser
   key: password
   namespace: joplin
 spec:
+  instances: 1
   bootstrap:
     initdb:
       database: joplin
