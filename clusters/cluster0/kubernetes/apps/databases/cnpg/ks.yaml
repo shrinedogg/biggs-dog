@@ -9,7 +9,7 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: ./clusters/cluster0/kubernetes/apps/database/cnpg/app
+  path: ./clusters/cluster0/kubernetes/apps/databases/cnpg/app
   prune: true
   sourceRef:
     kind: GitRepository
@@ -29,7 +29,7 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: ./clusters/cluster0/kubernetes/apps/database/cnpg/databases
+  path: ./clusters/cluster0/kubernetes/apps/databases/cnpg/databases
   prune: true
   sourceRef:
     kind: GitRepository
