@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: kube-prometheus-stack
-      version: 61.9.0
+      version: 68.2.1
       sourceRef:
         kind: HelmRepository
         name: prometheus-community
@@ -167,4 +167,8 @@ spec:
         ingressClassName: external
         hosts: ["grafana.biggs.dog"]
         pathType: Prefix
-      
+      admin:
+        ## Name of the secret. Can be templated.
+        existingSecret: grafana-admin-password
+        userKey: username
+        passwordKey: password
