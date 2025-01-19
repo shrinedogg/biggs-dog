@@ -168,7 +168,6 @@ spec:
         hosts: ["grafana.biggs.dog"]
         pathType: Prefix
       admin:
-        ## Name of the secret. Can be templated.
-        existingSecret: grafana-admin-password
+        existingSecret: grafana-admin-secret
         userKey: username
         passwordKey: password
