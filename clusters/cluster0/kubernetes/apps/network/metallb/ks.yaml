@@ -25,6 +25,8 @@ metadata:
   name: &app ips
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: metallb
   targetNamespace: metallb-system
   commonMetadata:
     labels:
