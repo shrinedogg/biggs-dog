@@ -169,5 +169,4 @@ spec:
         pathType: Prefix
       admin:
         existingSecret: grafana-admin-secret
-        userKey: username
         passwordKey: password
