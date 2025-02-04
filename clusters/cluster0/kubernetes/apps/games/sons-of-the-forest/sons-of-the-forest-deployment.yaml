@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: sons-of-the-forest
+  name: sons-of-the-forest
+  namespace: games
+spec:
+  template:
+    metadata:
+      labels:
+        app: sons-of-the-forest
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: worker-03
+      containers:
+        - image: jammsen/sons-of-the-forest-dedicated-server:latest
+          imagePullPolicy: Always
+          name: sons-of-the-forest
+          env: 
+          - name: ALWAYS_UPDATE_ON_START
+            value: "1"
+          - name: SKIP_NETWORK_ACCESSIBILITY_TEST
+            value: "false"
+          - name: SERVER_NAME
+            value: "The_Bridge"
+          - name: PASSWORD
+            value: "friendship!"
+          ports:
+            - name: sotf-port-1
+              containerPort: 8766
+              protocol: UDP
+            - name: sotf-port-2
+              containerPort: 27016
+              protocol: UDP
+            - name: sotf-port-3
+              containerPort: 9700
+              protocol: UDP
+          volumeMounts:
+          - name: sons-of-the-forest-config
+            mountPath: /steamcmd
+          - name: sons-of-the-forest-data
+            mountPath: /sonsoftheforest
+          - name: sons-of-the-forest-wine
+            mountPath: /winedata
+          resources:
+            limits:
+              memory: 8Gi
+              cpu: "4"       
+            requests:
+              memory: 6Gi
+              cpu: "2"
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      volumes:
+      - name: sons-of-the-forest-config
+        persistentVolumeClaim:
+          claimName: "sons-of-the-forest-config-pvc"
+      - name: sons-of-the-forest-data
+        persistentVolumeClaim:
+          claimName: "sons-of-the-forest-data-pvc"
+      - name: sons-of-the-forest-wine
+        persistentVolumeClaim:
+          claimName: "sons-of-the-forest-wine-pvc"
+  selector:
+    matchLabels:
+      app: sons-of-the-forest

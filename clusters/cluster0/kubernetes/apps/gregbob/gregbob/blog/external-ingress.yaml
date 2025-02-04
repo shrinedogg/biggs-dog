@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: blog
+  namespace: gregbob
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: gregblog.biggs.dog
+spec:
+  ingressClassName: external
+  rules:
+  - host: gregblog.biggs.dog
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend: 
+          service:
+            name: blog-service
+            port:
+              number: 1313
+  - host: gregblog.gregbob.net
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend: 
+          service:
+            name: blog-service
+            port:
+              number: 1313

@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - metallb-repo.yaml
+  - ingress-nginx-repo.yaml
+  - cnpg-repo.yaml
+  - kube-prometheus-repo.yaml
+  - nfd-repo.yaml
+  - k8s-gateway-repo.yaml
+  - cert-manager-repo.yaml
+  - velero.yaml
+  - external-secrets-repo.yaml
+  - bjw-s-repo.yaml
+  - csi-secrets-store-repo.yaml

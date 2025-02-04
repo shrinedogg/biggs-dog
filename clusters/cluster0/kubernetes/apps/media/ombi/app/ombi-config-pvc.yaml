@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ombi-config
+  namespace: media
+  labels:
+    app: ombi
+spec:
+  accessModes:
+   - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2G
+  storageClassName: local-path
+  

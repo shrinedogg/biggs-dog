@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: palworld
+  name: palworld
+  namespace: games
+spec:
+  template:
+    metadata:
+      labels:
+        app: palworld
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: worker-03
+      containers:
+        - image: thijsvanloef/palworld-server-docker
+          imagePullPolicy: Always
+          name: palworld-server
+          env:
+          - name: UPDATE_ON_BOOT
+            value: "true"
+          - name: PORT
+            value: "8211"
+          - name: PLAYERS
+            value: "16"
+          - name: SERVER_NAME
+            value: "The_Bridge"
+          - name: SERVER_PASSWORD
+            value: "friendship!"
+          - name: MULTITHREADING
+            value: "true"
+          - name: COMMUNITY
+            value: "true"
+          - name: PUBLIC_IP
+            value: "68.60.163.239"
+          - name: ADMIN_PASSWORD
+            value: "friendship!"
+          # - name: PUBLIC_PORT
+            # value: "31777"
+          ports:
+            - name: palworld-port-1
+              containerPort: 8211
+              protocol: UDP
+            - name: palworld-port-2
+              containerPort: 27015
+              protocol: UDP
+          volumeMounts:
+          - name: palworld-data
+            mountPath: /palworld
+          resources:
+            limits:
+              memory: 4Gi
+              cpu: "3"
+            requests:
+              memory: 2.5Gi
+              cpu: "400m"
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      volumes:
+      - name: palworld-data
+        persistentVolumeClaim:
+          claimName: "palworld-data-pvc"
+  selector:
+    matchLabels:
+      app: palworld

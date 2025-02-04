@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: sonarr
+  name: sonarr
+  namespace: media
+spec:
+  template:
+    metadata:
+      labels:
+        app: sonarr
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: control-01
+      containers:
+        - image: lscr.io/linuxserver/sonarr:latest
+          imagePullPolicy: Always
+          name: sonarr
+          env:
+          - name: TZ
+            value: "America/Detroit"
+          - name: PUID
+            value: "1000"
+          - name: PGID
+            value: "1000"
+          ports:
+          - name: sonarr-port
+            containerPort: 8989
+            protocol: TCP
+          volumeMounts:
+          - name: sonarr-config
+            mountPath: /config
+          - name: sonarr-media
+            mountPath: /data
+          resources:
+            requests:
+              memory: 1500Mi
+              cpu: 100m
+            limits:
+              memory: 3Gi
+              cpu: "2"
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      volumes:
+      - name: sonarr-config
+        persistentVolumeClaim:
+          claimName: "sonarr-config"
+      - name: sonarr-media
+        persistentVolumeClaim:
+          claimName: "media-pvc"
+  selector:
+    matchLabels:
+      app: sonarr

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: resume
+  name: resume
+  namespace: gregbob
+spec:
+  template:
+    metadata:
+      labels:
+        app: resume
+    spec:
+      containers:
+        - image: szkud/resume:latest
+          imagePullPolicy: Always
+          name: resume
+          ports:
+          - name: resume-port
+            containerPort: 8080
+            protocol: TCP
+          resources:
+            requests:
+              memory: 350Mi
+              cpu: 10m
+            limits:
+              memory: 450Mi
+              cpu: 350m
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: resume

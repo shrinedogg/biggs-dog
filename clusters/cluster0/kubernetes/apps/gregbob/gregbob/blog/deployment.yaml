@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: blog
+  name: blog
+  namespace: gregbob
+spec:
+  template:
+    metadata:
+      labels:
+        app: blog
+    spec:
+      containers:
+        - image: szkud/gregblog:latest
+          imagePullPolicy: Always
+          name: blog
+          ports:
+          - name: blog-port
+            containerPort: 1313
+            protocol: TCP
+          resources:
+            requests:
+              memory: 350Mi
+              cpu: 10m
+            limits:
+              memory: 450Mi
+              cpu: 350m
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: blog
