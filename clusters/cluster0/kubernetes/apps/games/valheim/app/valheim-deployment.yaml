@@ -12,7 +12,7 @@ spec:
         app: valheim
     spec:
       nodeSelector:
-        kubernetes.io/hostname: k3s-worker-02
+        kubernetes.io/hostname: worker-03
       containers:
         - image: mbround18/valheim:latest
           imagePullPolicy: Always
