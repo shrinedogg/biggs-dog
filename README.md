@@ -46,7 +46,7 @@ From what you intend to be your k3s main control node:
 Note: the value for your `K3S_TOKEN` can be found at `/var/lib/rancher/k3s/server/node-token` on the control node.
 
 From what you inted to be your k3s worker nodes:
-`curl -sfL https://get.k3s.io | K3S_URL=https://<controlnodeIP>:6443 K3S_TOKEN=<yourvalue> -`\
+`curl -sfL https://get.k3s.io | K3S_URL=https://<controlnodeIP>:6443 K3S_TOKEN=<yourvalue> sh -`
 
 
 ### to bootstrap with flux
