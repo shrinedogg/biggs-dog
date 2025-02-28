@@ -9,10 +9,10 @@ spec:
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Delete
-  storageClassName: nfs
+  storageClassName: external-nfs
   mountOptions:
     - hard
     - nfsvers=4.1
   nfs:
     path: /
-    server: 192.168.2.30
+    server: 192.168.2.32

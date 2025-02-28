@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plex
+  namespace: media
+  labels:
+    app: plex
+spec:
+  selector:
+    matchLabels:
+      app: plex
+  template:
+    metadata:
+      labels:
+        app: plex
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: plek
+      containers:
+        - name: plex
+          image: plexinc/pms-docker:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 32400
+              name: plex
+          env:
+            - name: PGID
+              value: "1000"
+            - name: PUID
+              value: "1000"
+            - name: TZ
+              value: "America/Detroit"
+            - name: PLEX_CLAIM
+              value: ""
+          volumeMounts:
+            - name: plex-config
+              mountPath: /config
+            - name: plex-media-pvc
+              mountPath: /media
+          resources:
+            limits:
+              gpu.intel.com/i915: "1"
+              memory: 16Gi
+              cpu: "4"
+            requests:
+              gpu.intel.com/i915: "1"
+              memory: 16Gi
+              cpu: "1"
+      volumes:
+        - name: plex-config
+          persistentVolumeClaim:
+            claimName: plex-config
+        - name: plex-media-pvc
+          persistentVolumeClaim:
+            claimName: plex-media-pvc

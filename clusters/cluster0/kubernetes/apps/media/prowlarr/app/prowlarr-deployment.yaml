@@ -12,7 +12,7 @@ spec:
         app: prowlarr
     spec:
       nodeSelector:
-        kubernetes.io/hostname: control-01
+        kubernetes.io/hostname: control-00
       containers:
         - image: lscr.io/linuxserver/prowlarr:latest
           imagePullPolicy: Always

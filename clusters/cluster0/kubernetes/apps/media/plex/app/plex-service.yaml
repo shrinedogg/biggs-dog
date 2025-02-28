@@ -1,0 +1,19 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: plex-service
+  namespace: media
+  annotations:
+    metallb.universe.tf/address-pool: "plex-ip"
+    metallb.universe.tf/loadBalancerIPs: "192.168.2.117"
+spec:
+  selector:
+    app: plex
+  externalTrafficPolicy: Local
+  ports:
+    - name: plex
+      protocol: TCP
+      port: 32400
+      targetPort: 32400
+      nodePort: 32400
+  type: LoadBalancer

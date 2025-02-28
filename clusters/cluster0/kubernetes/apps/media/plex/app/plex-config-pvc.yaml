@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: plex-config
+  namespace: media
+  labels:
+    app: plex
+spec:
+  accessModes:
+   - ReadWriteOnce
+  resources:
+    requests:
+      storage: 60G
+  storageClassName: local-path
+  
