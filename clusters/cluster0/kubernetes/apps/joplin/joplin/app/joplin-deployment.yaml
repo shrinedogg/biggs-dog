@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: apps/v2
 kind: Deployment
 metadata:
   labels:
@@ -32,7 +32,7 @@ spec:
           - name: POSTGRES_HOST
             value: "cnpg-joplin-rw.cnpg-system.svc.cluster.local"
           - name: APP_BASE_URL
-            value: "https://joplin.biggs.dog"
+            value: "https://joplin.gregbob.net"
           ports:
           - name: joplin
             containerPort: 22300

@@ -5,7 +5,7 @@ metadata:
   namespace: media
   annotations:
     metallb.universe.tf/address-pool: "worker-02-ip"
-    external-dns.alpha.kubernetes.io/hostname: biggs.dog
+    external-dns.alpha.kubernetes.io/hostname: gregbob.net
 spec:
   externalTrafficPolicy: Local
   type: LoadBalancer

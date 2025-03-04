@@ -4,11 +4,11 @@ metadata:
   name: biggs
   namespace: gregbob
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: biggs.biggs.dog
+    external-dns.alpha.kubernetes.io/hostname: biggs.gregbob.net
 spec:
   ingressClassName: external
   rules:
-  - host: biggs.biggs.dog
+  - host: biggs.gregbob.net
     http:
       paths:
       - path: /

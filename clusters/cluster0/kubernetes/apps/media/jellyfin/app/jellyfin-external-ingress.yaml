@@ -4,11 +4,11 @@ metadata:
   name: jellyfin
   namespace: media
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: jellyfin.biggs.dog
+    external-dns.alpha.kubernetes.io/hostname: jellyfin.gregbob.net
 spec:
   ingressClassName: external
   rules:
-  - host: jellyfin.biggs.dog
+  - host: jellyfin.gregbob.net
     http:
       paths:
       - path: /

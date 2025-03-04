@@ -30,7 +30,7 @@ spec:
             - name: UID
               value: "1000"
             - name: JELLYFIN_PublishedServerUrl
-              value: "https://jellyfin.biggs.dog"
+              value: "https://jellyfin.gregbob.net"
           volumeMounts:
             - name: jellyfin-config
               mountPath: /config

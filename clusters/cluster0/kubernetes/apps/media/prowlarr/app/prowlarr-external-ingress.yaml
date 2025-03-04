@@ -4,11 +4,11 @@ metadata:
   name: prowlarr
   namespace: media
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: biggs.dog
+    external-dns.alpha.kubernetes.io/hostname: gregbob.net
 spec:
   ingressClassName: external
   rules:
-  - host: prowlarr.biggs.dog
+  - host: prowlarr.gregbob.net
     http:
       paths:
       - path: /

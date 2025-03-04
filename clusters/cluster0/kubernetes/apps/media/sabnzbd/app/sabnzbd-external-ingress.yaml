@@ -4,11 +4,11 @@ metadata:
   name: sabnzbd
   namespace: media
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: biggs.dog
+    external-dns.alpha.kubernetes.io/hostname: gregbob.net
 spec:
   ingressClassName: external
   rules:
-  - host: sabnzbd.biggs.dog
+  - host: sabnzbd.gregbob.net
     http:
       paths:
       - path: /

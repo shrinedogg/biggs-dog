@@ -4,11 +4,11 @@ metadata:
   name: resume
   namespace: gregbob
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: gregbob.biggs.dog
+    external-dns.alpha.kubernetes.io/hostname: gregbob.gregbob.net
 spec:
   ingressClassName: external
   rules:
-  - host: gregbob.biggs.dog
+  - host: gregbob.gregbob.net
     http:
       paths:
       - path: /

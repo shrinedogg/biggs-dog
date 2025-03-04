@@ -40,7 +40,7 @@ spec:
       # ingress:
         # enabled: true
         # ingressClassName: external
-        # hosts: ["alertmanager.biggs.dog"]
+        # hosts: ["alertmanager.gregbob.net"]
         # pathType: Prefix
       alertmanagerSpec:
         replicas: 2
@@ -88,7 +88,7 @@ spec:
       # ingress:
         # enabled: true
         # ingressClassName: external
-        # hosts: ["prometheus.biggs.dog"]
+        # hosts: ["prometheus.gregbob.net"]
         # pathType: Prefix
       thanosService:
         enabled: true
@@ -165,7 +165,7 @@ spec:
         # annotations:
           # external-dns.alpha.kubernetes.io/target: internal.devbu.io
         ingressClassName: external
-        hosts: ["grafana.biggs.dog"]
+        hosts: ["grafana.gregbob.net"]
         pathType: Prefix
       admin:
         existingSecret: grafana-admin-secret
