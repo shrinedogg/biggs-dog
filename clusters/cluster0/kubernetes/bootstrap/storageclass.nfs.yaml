@@ -2,7 +2,7 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: nfs
-provisioner: external-nfs
+provisioner: original-nfs
 parameters:
   server: 192.168.2.30
   path: /tank/media
