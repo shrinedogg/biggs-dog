@@ -4,7 +4,7 @@ metadata:
   name: media-pvc
   namespace: media
 spec:
-  storageClassName: nfs-00
+  storageClassName: nfs
   accessModes:
     - ReadWriteMany
   resources:

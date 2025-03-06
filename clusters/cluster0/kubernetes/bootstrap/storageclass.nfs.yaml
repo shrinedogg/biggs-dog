@@ -2,9 +2,9 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: nfs
-provisioner: original-nfs
+provisioner: nfs
 parameters:
-  server: 192.168.2.30
+  server: 192.168.2.32
   path: /tank/media
   readOnly: "false"
 volumeBindingMode: Immediate

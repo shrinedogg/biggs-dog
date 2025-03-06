@@ -9,7 +9,7 @@ spec:
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Delete
-  storageClassName: external-nfs
+  storageClassName: nfs
   mountOptions:
     - hard
     - nfsvers=4.1
