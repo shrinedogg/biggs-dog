@@ -35,7 +35,7 @@ spec:
       service:
         annotations:
           metallb.universe.tf/address-pool: "control-ips"
-          metallb.universe.tf/loadBalancerIPs: "192.168.2.30"
+          metallb.universe.tf/loadBalancerIPs: "192.168.2.32"
         enabled: true
         externalTrafficPolicy: Local
       publishService:
