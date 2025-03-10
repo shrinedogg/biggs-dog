@@ -15,7 +15,7 @@ spec:
         app: plex
     spec:
       nodeSelector:
-        kubernetes.io/hostname: plek
+        kubernetes.io/hostname: worker-00
       containers:
         - name: plex
           image: plexinc/pms-docker:latest
