@@ -5,7 +5,7 @@ metadata:
   namespace: media
   annotations:
     metallb.universe.tf/address-pool: "plex-ip"
-    metallb.universe.tf/loadBalancerIPs: "192.168.2.117"
+    metallb.universe.tf/loadBalancerIPs: "192.168.2.204"
 spec:
   selector:
     app: plex
