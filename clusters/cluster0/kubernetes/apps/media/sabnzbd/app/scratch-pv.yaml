@@ -8,6 +8,9 @@ spec:
   volumeMode: Filesystem
   accessModes:
   - ReadWriteOnce
+  claimRef:
+    name: scratch-pvc
+    namespace: media
   storageClassName: local-path
   local:
     path: /scratch
