@@ -1,9 +1,9 @@
+---
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: bjw-s
+  name: wireguard
   namespace: flux-system
 spec:
-  type: oci
-  interval: 10m
-  url: oci://ghcr.io/bjw-s/helm
+  interval: 2h
+  url: https://bryopsida.github.io/wireguard-chart

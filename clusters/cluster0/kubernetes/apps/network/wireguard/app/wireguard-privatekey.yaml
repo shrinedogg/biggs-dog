@@ -1,0 +1,19 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+    name: wireguard-privatekey
+    namespace: wireguard
+spec:
+    secretStoreRef:
+        kind: ClusterSecretStore
+        name: onepassword-connect
+    target:
+        name: wireguard-privatekey
+        creationPolicy: Owner
+    data:
+        - secretKey: privatekey
+          remoteRef:
+            key: wireguard-privatekey
+            property: privatekey
+
+

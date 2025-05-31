@@ -7,7 +7,7 @@ spec:
   dependsOn:
     - name: cert-manager
       namespace: cert-manager
-  interval: 5m
+  interval: 10m
   chart:
     spec:
       chart: ingress-nginx
