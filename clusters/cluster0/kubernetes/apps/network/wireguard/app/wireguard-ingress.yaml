@@ -17,4 +17,4 @@ spec:
           service:
             name: wireguard
             port:
-              number: 31820
+              number: 51820
