@@ -28,7 +28,7 @@ spec:
       kubernetes.io/hostname: control-00
     service:
       type: ClusterIP
-      # NodePort: 31820
+      port: 51820
       externalTrafficPolicy: Local
     secretName: wireguard-privatekey
   wireguard:
