@@ -2,7 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: wireguard
-  namespace: kube-system
+  namespace: wireguard
 spec:
   interval: 10m
   chart:

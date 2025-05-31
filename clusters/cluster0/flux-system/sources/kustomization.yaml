@@ -12,3 +12,4 @@ resources:
   - external-secrets-repo.yaml
   - bjw-s-repo.yaml
   - csi-secrets-store-repo.yaml
+  - wireguard-repo.yaml
