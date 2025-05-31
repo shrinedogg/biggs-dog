@@ -43,7 +43,7 @@ spec:
         # hosts: ["alertmanager.gregbob.net"]
         # pathType: Prefix
       alertmanagerSpec:
-        replicas: 2
+        replicas: 1
         # useExistingSecret: true
         # configSecret: alertmanager-secret
         storage:
@@ -95,7 +95,7 @@ spec:
       thanosServiceMonitor:
         enabled: true
       prometheusSpec:
-        replicas: 2
+        replicas: 1
         replicaExternalLabelName: __replica__
         scrapeInterval: 1m # Must match interval in Grafana Helm chart
         ruleSelectorNilUsesHelmValues: false
