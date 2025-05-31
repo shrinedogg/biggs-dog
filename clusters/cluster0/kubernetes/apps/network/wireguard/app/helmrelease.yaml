@@ -31,8 +31,8 @@ spec:
       port: 51820
       externalTrafficPolicy: Local
     secretName: wireguard-privatekey
-  wireguard:
-    clients:
-      - PublicKey: rIvNp5lC7V5CGDXO+Nuktu6UTwr8nEIpPhmsve4OMiM=
-        AllowedIPs: 10.34.0.2/32
+    wireguard:
+      clients:
+        - PublicKey: rIvNp5lC7V5CGDXO+Nuktu6UTwr8nEIpPhmsve4OMiM=
+          AllowedIPs: 10.34.0.2/32
 
