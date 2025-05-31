@@ -29,10 +29,14 @@ spec:
     service:
       type: ClusterIP
       port: 51820
-      externalTrafficPolicy: Local
+      externalTrafficPolicy: "Local"
     secretName: wireguard-privatekey
     wireguard:
       clients:
         - PublicKey: rIvNp5lC7V5CGDXO+Nuktu6UTwr8nEIpPhmsve4OMiM=
           AllowedIPs: 10.34.0.2/32
+    autoscaling:
+      enabled: false
+    disruptionBudget:
+      enabled: false
 
