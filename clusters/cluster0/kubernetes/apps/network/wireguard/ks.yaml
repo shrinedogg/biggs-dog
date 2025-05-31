@@ -5,7 +5,7 @@ metadata:
   name: &app wireguard
   namespace: flux-system
 spec:
-  targetNamespace: kube-system
+  targetNamespace: wireguard
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
