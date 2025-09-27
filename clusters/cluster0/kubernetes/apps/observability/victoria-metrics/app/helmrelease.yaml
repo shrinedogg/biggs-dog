@@ -38,9 +38,9 @@ spec:
         dnsDomain: cluster.local.
 
     # -- Override chart name
-    nameOverride: ""
+    nameOverride: "vm"
     # -- Resource full name override
-    fullnameOverride: "vm"
+    fullnameOverride: ""
     # -- Tenant to use for Grafana datasources and remote write
     tenant: "0"
     # -- If this chart is used in "Argocd" with "releaseName" field then
