@@ -20,10 +20,9 @@ spec:
   upgrade:
     cleanupOnFail: true
     remediation:
-      strategy: rollback
+      strategy: uninstall
       retries: 3
   dependsOn:
     - name: onepassword-connect
       namespace: external-secrets
-  values:
-    installCRDs: true
+
