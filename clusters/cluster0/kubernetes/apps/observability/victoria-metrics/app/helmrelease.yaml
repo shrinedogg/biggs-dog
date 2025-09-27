@@ -831,10 +831,10 @@ spec:
           promscrape.dropOriginalLabels: "true"
       # -- (object) VMAgent ingress configuration
       ingress:
-        enabled: true
+        enabled: false
         # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
         # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
-        ingressClassName: nginx
+        # ingressClassName: nginx
         # Values can be templated
         annotations:
           {}
@@ -942,11 +942,11 @@ spec:
         enabled: true
         # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
         # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
-        ingressClassName: nginx
+        ingressClassName: external
         # Values can be templated
         annotations:
           # {}
-          kubernetes.io/ingress.class: nginx
+          # kubernetes.io/ingress.class nginx
           # kubernetes.io/tls-acme: "true"
         labels: {}
         path: /
@@ -992,7 +992,7 @@ spec:
         labels:
           jobLabel: node-exporter
       extraArgs:
-        - --collector.filesystem.ignored-mount-points=^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/.+)($|/)
+        - --collect:or.filesystem.ignored-mount-points=^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/.+)($|/)
         - --collector.filesystem.ignored-fs-types=^(autofs|binfmt_misc|bpf|cgroup2?|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|iso9660|mqueue|nsfs|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|selinuxfs|squashfs|erofs|sysfs|tracefs)$
       # -- Node Exporter VM scrape config
       vmScrape:
