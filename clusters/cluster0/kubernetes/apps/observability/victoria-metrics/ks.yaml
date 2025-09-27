@@ -9,7 +9,7 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: ./clusters/cluster0/kubernetes/apps/observability/victoria-metrics/victoria-metrics/app
+  path: ./clusters/cluster0/kubernetes/apps/observability/victoria-metrics/app
   prune: true
   sourceRef:
     kind: GitRepository
