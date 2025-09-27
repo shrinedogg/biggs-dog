@@ -9,7 +9,7 @@ spec:
   timeout: 15m
   chart:
     spec:
-      chart: vm/victoria-metrics-k8s-stack
+      chart: victoria-metrics-k8s-stack
       version: 0.60.1 
       sourceRef:
         kind: HelmRepository
