@@ -379,7 +379,7 @@ spec:
       # 1Password Operator Service Account Configuration
       serviceAccount:
         # The name of the 1Password Conenct Operator
-        create: "{{ .Values.operator.create }}"
+        create: onepassword-connect-operator
 
         # Annotations for the 1Password Connect Service Account
         annotations: {}
