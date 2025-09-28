@@ -19,7 +19,7 @@ spec:
           name: radarr
           env:
           - name: TZ
-            value: "America/Detroit"
+            value: "Europe/Helsinki"
           - name: PUID
             value: "1000"
           - name: PGID

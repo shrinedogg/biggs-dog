@@ -6,3 +6,4 @@ metadata:
 spec:
   ipAddressPools:
   - control-ips
+  - worker-02-ip

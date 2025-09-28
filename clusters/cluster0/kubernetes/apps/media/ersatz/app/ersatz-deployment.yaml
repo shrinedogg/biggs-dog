@@ -21,7 +21,7 @@ spec:
           name: ersatz
           env:
           - name: TZ
-            value: "America/Detroit"
+            value: "Europe/Helsinki"
           #- name: ELASTICSEARCH__URI
           #  value: "http://eck-system.eck-1-es-http.cluster.local"
           #- name: Serilog__MinimumLevel

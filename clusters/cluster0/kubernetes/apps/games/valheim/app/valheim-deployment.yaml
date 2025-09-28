@@ -19,7 +19,7 @@ spec:
           name: valheim
           env:
           - name: TZ
-            value: "America/Detroit"
+            value: "Europe/Helsinki"
           - name: UID
             value: "1000"
           - name: GID
