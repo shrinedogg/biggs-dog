@@ -2,7 +2,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app cnpg
+  name: cnpg
   namespace: flux-system
 spec:
   targetNamespace: cnpg-system
@@ -22,7 +22,7 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app cnpg-databases
+  name: cnpg-databases
   namespace: flux-system
 spec:
   dependsOn:
@@ -44,7 +44,7 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app cnpg-secrets
+  name: cnpg-secrets
   namespace: flux-system
 spec:
   dependsOn:
