@@ -310,7 +310,7 @@ spec:
         retentionPeriod: "6w"
         replicaCount: 1
         extraArgs:
-          maxLabelsPerTimeseries: "50"
+          maxLabelsPerTimeseries: "125"
         storage:
           accessModes:
             - ReadWriteOnce
