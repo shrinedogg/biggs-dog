@@ -11,6 +11,8 @@ spec:
       labels:
         app: blog
     spec:
+      nodeSelector:
+        kubernetes.io/hostname: worker-03
       containers:
         - image: szkud/gregblog:latest
           imagePullPolicy: Always

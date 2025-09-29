@@ -11,6 +11,8 @@ spec:
       labels:
         app: resume
     spec:
+      nodeSelector:
+        kubernetes.io/hostname: worker-03
       containers:
         - image: szkud/resume:latest
           imagePullPolicy: Always

@@ -11,6 +11,8 @@ spec:
       labels:
         app: homarr
     spec:
+      nodeSelector:
+        kubernetes.io/hostname: worker-03
       containers:
         - image: ghcr.io/ajnart/homarr:latest
           imagePullPolicy: Always

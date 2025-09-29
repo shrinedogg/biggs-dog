@@ -11,6 +11,8 @@ spec:
       labels:
         app: ombi
     spec:
+      nodeSelector:
+        kubernetes.io/hostname: worker-03
       containers:
         - image: lscr.io/linuxserver/ombi:development
           imagePullPolicy: Always

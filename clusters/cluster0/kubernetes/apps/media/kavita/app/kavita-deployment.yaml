@@ -11,6 +11,8 @@ spec:
       labels:
         app: kavita
     spec:
+      nodeSelector:
+        kubernetes.io/hostname: worker-03
       containers:
         - image: jvmilazz0/kavita:latest
           imagePullPolicy: Always
