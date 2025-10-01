@@ -5,9 +5,12 @@ metadata:
   namespace: observability
   labels:
     grafana_datasource: "1"
-datasources:
-  - name: VictoriaLogs
-    type: victoriametrics-logs-datasource
-    access: proxy
-    url: http://victoria-logs-single-vls-server.observability.svc.cluster.local:9428
-    isDefault: true
+data:
+ vl-datasource.yaml: |-
+   apiVersion: 1
+   datasources:
+    - name: VictoriaLogs
+      type: victoriametrics-logs-datasource
+      access: proxy
+      url: http://victoria-logs-single-vls-server.observability.svc.cluster.local:9428
+      isDefault: true
