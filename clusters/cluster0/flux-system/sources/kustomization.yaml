@@ -12,3 +12,4 @@ resources:
   - external-secrets-repo.yaml
   - onepass-repo.yaml
   - csi-secrets-store-repo.yaml
+  - loki-repo.yaml
