@@ -946,9 +946,9 @@ spec:
       # Uncomment the block below, if you want to enable VictoriaMetrics Datasource in Grafana:
       # Note that Grafana will need internet access to install the datasource plugin.
       #
-      # plugins:
-      # - victoriametrics-metrics-datasource
-      # - victoriametrics-logs-datasource
+      plugins:
+      - victoriametrics-metrics-datasource
+      - victoriametrics-logs-datasource
 
       ingress:
         enabled: true
