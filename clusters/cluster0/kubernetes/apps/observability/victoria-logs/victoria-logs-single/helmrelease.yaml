@@ -147,7 +147,7 @@ spec:
 
       # -- Pod's node selector. Details are [here](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector)
       nodeSelector:
-        kubernetes.io/hostname: worker-01
+        kubernetes.io/hostname: control-01
 
       # -- Pod topologySpreadConstraints
       topologySpreadConstraints: []
