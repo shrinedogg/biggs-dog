@@ -141,7 +141,7 @@ spec:
     podAnnotations: {}
 
     # -- Pod's node selector. Details are [here](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector)
-    nodeSelector:
+    nodeSelector: {}
       # kubernetes.io/hostname: control-01
 
     # -- Node tolerations for server scheduling to nodes with taints. Details are [here](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/)
