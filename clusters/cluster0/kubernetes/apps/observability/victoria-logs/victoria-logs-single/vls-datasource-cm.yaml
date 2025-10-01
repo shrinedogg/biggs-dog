@@ -14,4 +14,4 @@ data:
         type: vls-datasource
         access: proxy
         url: http://victoria-logs-single-vls-server.observability.svc.cluster.local:9428
-        isDefault: true
+        isDefault: false
