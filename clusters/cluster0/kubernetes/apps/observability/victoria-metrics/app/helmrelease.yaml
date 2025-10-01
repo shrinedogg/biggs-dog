@@ -920,6 +920,13 @@ spec:
           enabled: true
           initDatasources: true
           label: grafana_datasource
+          datasources.yaml:
+            apiVersion: 1
+            datasources:
+            - name: Loki
+              type: loki
+              access: proxy
+              url: http://loki.observability.svc.cluster.local:3100
         dashboards:
           provider:
             name: default
@@ -928,15 +935,13 @@ spec:
           defaultFolderName: default
           enabled: true
           multicluster: false
-
-      # -- Create datasource configmap even if grafana deployment has been disabled
       forceDeployDatasource: false
 
       # Uncomment the block below, if you want to enable VictoriaMetrics Datasource in Grafana:
       # Note that Grafana will need internet access to install the datasource plugin.
       #
-      # plugins:
-      # - victoriametrics-metrics-datasource
+      plugins:
+      - victoriametrics-metrics-datasource
       # - victoriametrics-logs-datasource
 
       ingress:
