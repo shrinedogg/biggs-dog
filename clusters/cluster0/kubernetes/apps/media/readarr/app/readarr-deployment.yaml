@@ -12,7 +12,7 @@ spec:
         app: readarr
     spec:
       containers:
-        - image: hcr.io/pennydreadful/bookshelf:hardcover
+        - image: ghcr.io/pennydreadful/bookshelf:hardcover
           imagePullPolicy: Always
           name: readarr
           env:
