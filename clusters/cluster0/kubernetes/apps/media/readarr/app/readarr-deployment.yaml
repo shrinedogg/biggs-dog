@@ -11,6 +11,8 @@ spec:
       labels:
         app: readarr
     spec:
+      nodeSelector:
+        kubernetes.io/hostname: control-01
       containers:
         - image: lscr.io/linuxserver/readarr:develop
           imagePullPolicy: Always
