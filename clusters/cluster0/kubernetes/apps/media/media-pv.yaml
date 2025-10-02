@@ -11,8 +11,10 @@ spec:
   persistentVolumeReclaimPolicy: Delete
   storageClassName: nfs
   mountOptions:
+    - noatime
+    - nconnect=16
     - hard
-    - nfsvers=4.1
+    - nfsvers=4.2
   nfs:
     path: /
     server: 192.168.2.30
