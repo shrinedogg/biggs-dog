@@ -54,6 +54,9 @@ spec:
         - name: sabnzbd-media
           persistentVolumeClaim:
             claimName: "media-pvc"
+        - name: sabnzbd-scratch
+          persistentVolumeClaim:
+            claimName: "scratch-pvc"
   selector:
     matchLabels:
       app: sabnzbd
