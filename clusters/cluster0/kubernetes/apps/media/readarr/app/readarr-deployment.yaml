@@ -12,7 +12,7 @@ spec:
         app: readarr
     spec:
       containers:
-        - image: lscr.io/linuxserver/readarr:develop
+        - image: hcr.io/pennydreadful/bookshelf:hardcover
           imagePullPolicy: Always
           name: readarr
           env:
@@ -33,11 +33,11 @@ spec:
             mountPath: /books
           resources:
             requests:
-              memory: 175Mi
-              cpu: 100m
+              memory: 300Mi
+              cpu: 150m
             limits:
-              memory: 350Mi
-              cpu: 350m
+              memory: 750Mi
+              cpu: 500m
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       volumes:
