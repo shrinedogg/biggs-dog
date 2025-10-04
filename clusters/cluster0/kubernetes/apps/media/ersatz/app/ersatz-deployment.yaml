@@ -15,8 +15,8 @@ spec:
         #gpu: intel
         kubernetes.io/hostname: worker-02
       containers:
-        - image: jasongdove/ersatztv:latest
-        #- image: jasongdove/ersatztv:develop-vaapi
+        # - image: jasongdove/ersatztv:latest
+        - image: jasongdove/ersatztv:develop
           imagePullPolicy: Always
           name: ersatz
           env:
