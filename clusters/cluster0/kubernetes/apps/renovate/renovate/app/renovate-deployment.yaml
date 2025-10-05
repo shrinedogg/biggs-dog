@@ -36,8 +36,8 @@ spec:
           - name: MEND_RNV_GITHUB_APP_KEY
             valueFrom:
               secretKeyRef:
-                name: renovate-github-secret
-                key: credential
+                name: renovate-github-key
+                key: private-key
           - name: MEND_RNV_GITHUB_APP_ID
             valueFrom:
               secretKeyRef:
