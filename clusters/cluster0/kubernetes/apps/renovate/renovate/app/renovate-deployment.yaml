@@ -17,22 +17,22 @@ spec:
           name: renovate
           env:
           - name: MEND_RNV_DATA_HANDLER_TYPE
-            value: "postgresql"
+            value: postgresql
           - name: PGPASSWORD
             valueFrom:
               secretKeyRef:
                 name: renovate-user-password
                 key: password
           - name: PGDATABASE
-            value: "renovate"
+            value: renovate
           - name: PGUSER
-            value: "renovate"
+            value: renovate
           - name: PGPORT
             value: "5432"
           - name: PGHOST
-            value: "cnpg-renovate-rw.cnpg-system.svc.cluster.local"
+            value: cnpg-renovate-rw.cnpg-system.svc.cluster.local
           - name: MEND_RNV_PLATFORM
-            value: "github"
+            value: github
           - name: MEND_RNV_GITHUB_APP_KEY
             valueFrom:
               secretKeyRef:
