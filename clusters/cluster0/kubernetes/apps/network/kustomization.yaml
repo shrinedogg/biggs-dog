@@ -7,6 +7,4 @@ resources:
   # Flux-Kustomizations
   - ./metallb/ks.yaml
   - ./ingress-nginx/ks.yaml
-  - ./wireguard/ks.yaml
-  # Temporarily disabled until we have a working k8s-gateway
-  # - ./k8s-gateway/ks.yaml
+  - ./k8s-gateway/ks.yaml
