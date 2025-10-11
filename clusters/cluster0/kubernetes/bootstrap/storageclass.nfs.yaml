@@ -9,4 +9,7 @@ parameters:
   readOnly: "false"
 volumeBindingMode: Immediate
 mountOptions:
-  - vers=4.1
+  - vers=4.2
+  - nconnect=16
+  - hard
+  - noatime

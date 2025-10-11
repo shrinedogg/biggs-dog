@@ -4,12 +4,11 @@ resources:
   - metallb-repo.yaml
   - ingress-nginx-repo.yaml
   - cnpg-repo.yaml
-  - kube-prometheus-repo.yaml
+  - victoria-metrics-repo.yaml
   - nfd-repo.yaml
   - k8s-gateway-repo.yaml
   - cert-manager-repo.yaml
   - velero.yaml
   - external-secrets-repo.yaml
-  - bjw-s-repo.yaml
+  - onepass-repo.yaml
   - csi-secrets-store-repo.yaml
-  - wireguard-repo.yaml

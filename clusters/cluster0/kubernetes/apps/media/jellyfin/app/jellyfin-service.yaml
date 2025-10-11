@@ -4,7 +4,8 @@ metadata:
   name: jellyfin-service
   namespace: media
   # annotations:
-    # metallb.universe.tf/address-pool: "jellyfin-ip"
+    # metallb.universe.tf/address-pool: "worker-01ip"
+    # external-dns.alpha.kubernetes.io/hostname: biggs.dog
 spec:
   selector:
     app: jellyfin

@@ -15,13 +15,13 @@ spec:
         #gpu: intel
         kubernetes.io/hostname: worker-02
       containers:
-        - image: jasongdove/ersatztv:latest-vaapi
-        #- image: jasongdove/ersatztv:develop-vaapi
+        # - image: jasongdove/ersatztv:latest
+        - image: jasongdove/ersatztv:develop
           imagePullPolicy: Always
           name: ersatz
           env:
           - name: TZ
-            value: "America/Detroit"
+            value: "Europe/Helsinki"
           #- name: ELASTICSEARCH__URI
           #  value: "http://eck-system.eck-1-es-http.cluster.local"
           #- name: Serilog__MinimumLevel
@@ -38,12 +38,12 @@ spec:
           resources:
             limits:
               gpu.intel.com/i915: "1"
-              memory: 10Gi
-              cpu: "2"
+              memory: 12Gi
+              cpu: "6"
             requests:
               gpu.intel.com/i915: "1"
-              memory: 2Gi
-              cpu: 300m
+              memory: 4Gi
+              cpu: 500m
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       volumes:

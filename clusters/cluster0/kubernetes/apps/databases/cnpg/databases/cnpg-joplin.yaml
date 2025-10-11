@@ -15,7 +15,7 @@ spec:
       dataChecksums: true
       secret:
         name: joplin-user-password
-  imageName: ghcr.io/cloudnative-pg/postgresql:16.6
+  imageName: ghcr.io/cloudnative-pg/postgresql:18.0
   resources:
     requests:
       memory: 300Mi

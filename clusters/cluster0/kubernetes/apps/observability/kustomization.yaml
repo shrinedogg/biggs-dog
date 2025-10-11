@@ -5,6 +5,7 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
-  - ./crds/ks.yaml
-  - ./kube-prometheus-stack/ks.yaml
+  - ./victoria-logs/ks.yaml
+  - ./victoria-metrics/ks.yaml
+
   

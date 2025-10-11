@@ -2,13 +2,13 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app cnpg
+  name: cnpg
   namespace: flux-system
 spec:
   targetNamespace: cnpg-system
   commonMetadata:
     labels:
-      app.kubernetes.io/name: *app
+      app.kubernetes.io/name: cnpg
   path: ./clusters/cluster0/kubernetes/apps/databases/cnpg/app
   prune: true
   sourceRef:
@@ -22,7 +22,7 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app cnpg-databases
+  name: cnpg-databases
   namespace: flux-system
 spec:
   dependsOn:
@@ -30,7 +30,7 @@ spec:
   targetNamespace: cnpg-system
   commonMetadata:
     labels:
-      app.kubernetes.io/name: *app
+      app.kubernetes.io/name: cnpg-databases
   path: ./clusters/cluster0/kubernetes/apps/databases/cnpg/databases
   prune: true
   sourceRef:
@@ -44,14 +44,15 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app cnpg-secrets
+  name: cnpg-secrets
   namespace: flux-system
 spec:
   dependsOn:
     - name: cnpg
   commonMetadata:
     labels:
-      app.kubernetes.io/name: *app
+      app.kubernetes.io/name: cnpg-secrets
+  targetNamespace: cnpg-system
   path: ./clusters/cluster0/kubernetes/apps/databases/cnpg/secrets
   prune: true
   sourceRef:

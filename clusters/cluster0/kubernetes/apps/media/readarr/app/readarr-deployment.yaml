@@ -11,6 +11,8 @@ spec:
       labels:
         app: readarr
     spec:
+      nodeSelector:
+        kubernetes.io/hostname: control-00
       containers:
         - image: ghcr.io/pennydreadful/bookshelf:softcover
           imagePullPolicy: Always
