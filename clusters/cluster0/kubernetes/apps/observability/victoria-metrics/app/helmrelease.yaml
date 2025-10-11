@@ -308,7 +308,7 @@ spec:
         resources:
           limits:
             cpu: 1500m
-            memory: 3000Mi
+            memory: 3500Mi
           requests:
             cpu: 150m
             memory: 500Mi
@@ -972,7 +972,7 @@ spec:
         pathType: Prefix
 
         hosts:
-          - grafana.biggs.dog
+          - grafana.gregbob.net
         # -- Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
         extraPaths: []
         # - path: /*
