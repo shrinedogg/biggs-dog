@@ -53,7 +53,7 @@ spec:
         enable_gzip: true
       database:
         type: postgres
-        host: cnpg-grafana-rw
+        host: cnpg-grafana-rw.cnpg-system.svc.cluster.local:5432
         name: grafana
         user: grafana
         ssl_mode: require
