@@ -36,12 +36,10 @@ spec:
     defaultDashboardsEnabled: true
     defaultDashboardsTimezone: "Europe/Helsinki"
     # Administrator credentials when not using an existing secret (see below)
-    adminUser:
+    admin:
       existingSecret: grafana-admin-credentials
-      key: username
-    adminPassword:
-      existingSecret: grafana-admin-credentials
-      key: password
+      userKey: username
+      passwordKey: password
     env:
       GF_PANELS_DISABLE_SANITIZE_HTML: true
       GF_DATE_FORMATS_USE_BROWSER_LOCALE: true
