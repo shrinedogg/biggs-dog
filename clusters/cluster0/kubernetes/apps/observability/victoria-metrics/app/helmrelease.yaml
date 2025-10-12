@@ -73,7 +73,7 @@ spec:
       annotations: {}
       grafanaOperator:
         # -- Create dashboards as CRDs (requires grafana-operator to be installed)
-        enabled: false
+        enabled: true
         spec:
           instanceSelector:
             matchLabels:
@@ -871,7 +871,7 @@ spec:
     defaultDatasources:
       grafanaOperator:
         # -- Create datasources as CRDs (requires grafana-operator to be installed)
-        enabled: false
+        enabled: true
         annotations: {}
         spec:
           instanceSelector:
