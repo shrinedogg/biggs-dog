@@ -202,8 +202,8 @@ spec:
       - grafana-worldmap-panel
       - grafana-clock-panel
       - grafana-piechart-panel
-    serviceMonitor:
-      enabled: true
+    # serviceMonitor:
+    #   enabled: true
     testFramework:
       enabled: false
     assertNoLeakedSecrets: false
