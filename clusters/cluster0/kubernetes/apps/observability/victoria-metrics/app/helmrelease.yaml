@@ -923,19 +923,19 @@ spec:
     grafana:
       enabled: false
       # all values for grafana helm chart can be specified here
-      sidecar:
-        datasources:
-          enabled: true
-          initDatasources: true
-          label: grafana_datasource
-        dashboards:
-          provider:
-            name: default
-            orgid: 1
-          folder: /var/lib/grafana/dashboards
-          defaultFolderName: default
-          enabled: true
-          multicluster: false
+      # sidecar:
+      #   datasources:
+      #     enabled: false
+      #     initDatasources: true
+      #     label: grafana_datasource
+      #   dashboards:
+      #     provider:
+      #       name: default
+      #       orgid: 1
+      #     folder: /var/lib/grafana/dashboards
+      #     defaultFolderName: default
+      #     enabled: false
+      #     multicluster: false
       # additionalDataSources:
       #     # <string, required> name of the datasource. Required
       #   - name: loki
@@ -954,7 +954,7 @@ spec:
       # Uncomment the block below, if you want to enable VictoriaMetrics Datasource in Grafana:
       # Note that Grafana will need internet access to install the datasource plugin.
       #
-      plugins:
+      # plugins:
       # - victoriametrics-metrics-datasource
       # - victoriametrics-logs-datasource
 
@@ -968,8 +968,8 @@ spec:
           # kubernetes.io/ingress.class: nginx
           # kubernetes.io/tls-acme: "true"
         labels: {}
-        path: /
-        pathType: Prefix
+        # path: /
+        # pathType: Prefix
 
         hosts: []
           # - grafana.biggs.dog
