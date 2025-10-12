@@ -972,7 +972,7 @@ spec:
         path: /
         pathType: Prefix
 
-        hosts:
+        hosts: []
           # - grafana.biggs.dog
         # -- Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
         extraPaths: []
