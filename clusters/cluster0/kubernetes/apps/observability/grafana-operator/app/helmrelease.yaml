@@ -51,12 +51,6 @@ spec:
         root_url: https://grafana.biggs.dog
         serve_from_sub_path: false
         enable_gzip: true
-      database:
-        type: postgres
-        host: cnpg-grafana-rw.cnpg-system.svc.cluster.local:5432
-        name: grafana
-        user: grafana
-        ssl_mode: require
       log:
         level: warn
       users:
