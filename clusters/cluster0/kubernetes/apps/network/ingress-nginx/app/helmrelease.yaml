@@ -74,6 +74,11 @@ spec:
         ssl-protocols: "TLSv1.3 TLSv1.2"
         use-forwarded-headers: true
         force-ssl-redirect: true
+      metrics:
+        enabled: true
+      podAnnotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "10254"
       extraArgs:
         default-ssl-certificate: "cert-manager/cloudflare-tls"
       #  enable-ssl-passthrough: true
