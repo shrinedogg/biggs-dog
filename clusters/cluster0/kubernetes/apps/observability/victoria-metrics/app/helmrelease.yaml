@@ -6,7 +6,7 @@ metadata:
   namespace: observability
 spec:
   interval: 30m
-  timeout: 15m
+  timeout: 5m
   chart:
     spec:
       chart: victoria-metrics-k8s-stack
@@ -72,12 +72,12 @@ spec:
       annotations: {}
       grafanaOperator:
         # -- Create dashboards as CRDs (requires grafana-operator to be installed)
-        enabled: false
+        enabled: true
         spec:
           instanceSelector:
             matchLabels:
               dashboards: grafana
-          allowCrossNamespaceImport: false
+          allowCrossNamespaceImport: true
       # -- Create dashboards as ConfigMap despite dependency it requires is not installed
       dashboards:
         victoriametrics-vmalert:
@@ -86,8 +86,8 @@ spec:
           enabled: true
         # -- In ArgoCD using client-side apply this dashboard reaches annotations size limit and causes k8s issues without server side apply
         # See [this issue](https://github.com/VictoriaMetrics/helm-charts/tree/master/charts/victoria-metrics-k8s-stack#metadataannotations-too-long-must-have-at-most-262144-bytes-on-dashboards)
-        node-exporter-full:
-          enabled: true
+        # node-exporter-full:
+        #   enabled: true
 
     # -- Create default rules for monitoring the cluster
     defaultRules:
@@ -870,13 +870,13 @@ spec:
     defaultDatasources:
       grafanaOperator:
         # -- Create datasources as CRDs (requires grafana-operator to be installed)
-        enabled: false
+        enabled: true
         annotations: {}
         spec:
           instanceSelector:
             matchLabels:
               dashboards: grafana
-          allowCrossNamespaceImport: false
+          allowCrossNamespaceImport: true
       victoriametrics:
         # -- Create per replica prometheus compatible datasource
         perReplica: false
@@ -920,7 +920,7 @@ spec:
 
     # -- Grafana dependency chart configuration. For possible values refer [here](https://github.com/grafana/helm-charts/tree/main/charts/grafana#configuration)
     grafana:
-      enabled: true
+      enabled: false
       # all values for grafana helm chart can be specified here
       sidecar:
         datasources:
@@ -954,11 +954,11 @@ spec:
       # Note that Grafana will need internet access to install the datasource plugin.
       #
       plugins:
-      - victoriametrics-metrics-datasource
-      - victoriametrics-logs-datasource
+      # - victoriametrics-metrics-datasource
+      # - victoriametrics-logs-datasource
 
       ingress:
-        enabled: true
+        enabled: false
         # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
         # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
         ingressClassName: external
@@ -972,7 +972,7 @@ spec:
         pathType: Prefix
 
         hosts:
-          - grafana.biggs.dog
+          # - grafana.biggs.dog
         # -- Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
         extraPaths: []
         # - path: /*
