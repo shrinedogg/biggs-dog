@@ -11,7 +11,7 @@ spec:
   chart:
     spec:
       chart: victoria-metrics-k8s-stack
-      version: 0.60.1 
+      version: 0.60.6
       sourceRef:
         kind: HelmRepository
         name: victoria-metrics
@@ -67,28 +67,28 @@ spec:
 
     defaultDashboards:
       # -- Enable custom dashboards installation
-      enabled: false
+      enabled: true
       defaultTimezone: utc
       labels: {}
       annotations: {}
       grafanaOperator:
         # -- Create dashboards as CRDs (requires grafana-operator to be installed)
-        enabled: true
+        enabled: false
         spec:
           instanceSelector:
             matchLabels:
               dashboards: grafana
-          allowCrossNamespaceImport: true
+          allowCrossNamespaceImport: false
       # -- Create dashboards as ConfigMap despite dependency it requires is not installed
       dashboards:
-        # victoriametrics-vmalert:
-        #   enabled: true
-        # victoriametrics-operator:
-        #   enabled: true
+        victoriametrics-vmalert:
+          enabled: true
+        victoriametrics-operator:
+          enabled: true
         # -- In ArgoCD using client-side apply this dashboard reaches annotations size limit and causes k8s issues without server side apply
         # See [this issue](https://github.com/VictoriaMetrics/helm-charts/tree/master/charts/victoria-metrics-k8s-stack#metadataannotations-too-long-must-have-at-most-262144-bytes-on-dashboards)
-        # node-exporter-full:
-        #   enabled: true
+        node-exporter-full:
+          enabled: true
 
     # -- Create default rules for monitoring the cluster
     defaultRules:
@@ -137,7 +137,7 @@ spec:
       # -- Rule group properties
       groups:
         etcd:
-          create: false
+          create: true
           # -- Common properties for all rules in a group
           rules: {}
           # spec:
@@ -306,19 +306,11 @@ spec:
       enabled: true
       # -- Full spec for VMSingle CRD. Allowed values describe [here](https://docs.victoriametrics.com/operator/api/#vmsinglespec)
       spec:
-        resources:
-          limits:
-            cpu: 1500m
-            memory: 3500Mi
-          requests:
-            cpu: 150m
-            memory: 500Mi
         port: "8428"
         # -- Data retention period. Possible units character: h(ours), d(ays), w(eeks), y(ears), if no unit character specified - month. The minimum retention period is 24h. See these [docs](https://docs.victoriametrics.com/victoriametrics/single-server-victoriametrics/#retention)
-        retentionPeriod: "6w"
+        retentionPeriod: "1"
         replicaCount: 1
-        extraArgs:
-          maxLabelsPerTimeseries: "130"
+        extraArgs: {}
         storage:
           accessModes:
             - ReadWriteOnce
@@ -371,7 +363,7 @@ spec:
       # -- Full spec for VMCluster CRD. Allowed values described [here](https://docs.victoriametrics.com/operator/api/#vmclusterspec)
       spec:
         # -- Data retention period. Possible units character: h(ours), d(ays), w(eeks), y(ears), if no unit character specified - month. The minimum retention period is 24h. See these [docs](https://docs.victoriametrics.com/victoriametrics/single-server-victoriametrics/#retention)
-        retentionPeriod: "6w"
+        retentionPeriod: "1"
         replicationFactor: 2
         vmstorage:
           replicaCount: 2
@@ -871,13 +863,13 @@ spec:
     defaultDatasources:
       grafanaOperator:
         # -- Create datasources as CRDs (requires grafana-operator to be installed)
-        enabled: true
+        enabled: false
         annotations: {}
         spec:
           instanceSelector:
             matchLabels:
               dashboards: grafana
-          allowCrossNamespaceImport: true
+          allowCrossNamespaceImport: false
       victoriametrics:
         # -- Create per replica prometheus compatible datasource
         perReplica: false
@@ -923,30 +915,19 @@ spec:
     grafana:
       enabled: false
       # all values for grafana helm chart can be specified here
-      # sidecar:
-      #   datasources:
-      #     enabled: false
-      #     initDatasources: true
-      #     label: grafana_datasource
-      #   dashboards:
-      #     provider:
-      #       name: default
-      #       orgid: 1
-      #     folder: /var/lib/grafana/dashboards
-      #     defaultFolderName: default
-      #     enabled: false
-      #     multicluster: false
-      # additionalDataSources:
-      #     # <string, required> name of the datasource. Required
-      #   - name: loki
-      #     # <string, required> datasource type. Required
-      #     type: loki
-      #     uid: loki
-      #     # <string, required> access mode. proxy or direct (Server or Browser in the UI). Required
-      #     access: proxy
-      #     # <string> url
-      #     url: http://loki.observability.svc.cluster.local:3100
-      # all values for grafana helm chart can be specified here
+      sidecar:
+        datasources:
+          enabled: true
+          initDatasources: true
+          label: grafana_datasource
+        dashboards:
+          provider:
+            name: default
+            orgid: 1
+          folder: /var/lib/grafana/dashboards
+          defaultFolderName: default
+          enabled: true
+          multicluster: false
 
       # -- Create datasource configmap even if grafana deployment has been disabled
       forceDeployDatasource: false
@@ -962,17 +943,18 @@ spec:
         enabled: false
         # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
         # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
-        # ingressClassName: external
+        # ingressClassName: nginx
         # Values can be templated
-        annotations: {}
+        annotations:
+          {}
           # kubernetes.io/ingress.class: nginx
           # kubernetes.io/tls-acme: "true"
         labels: {}
-        # path: /
-        # pathType: Prefix
+        path: /
+        pathType: Prefix
 
-        hosts: []
-          # - grafana.biggs.dog
+        hosts:
+          - grafana.domain.com
         # -- Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
         extraPaths: []
         # - path: /*
@@ -1145,6 +1127,8 @@ spec:
         port: 10257
         # -- Kube controller manager service target port
         targetPort: 10257
+        # -- Kube controller manager service labels
+        labels: {}
         # -- Kube controller manager service pod selector
         selector:
           component: kube-controller-manager
@@ -1173,6 +1157,8 @@ spec:
       service:
         # -- Create Service for KubeDNS metrics
         enabled: false
+        # -- KubeDNS service labels
+        labels: {}
         # -- KubeDNS service ports
         ports:
           dnsmasq:
@@ -1207,6 +1193,8 @@ spec:
         port: 9153
         # -- CoreDNS service target port
         targetPort: 9153
+        # -- CoreDNS service labels
+        labels: {}
         # -- CoreDNS service pod selector
         selector:
           k8s-app: kube-dns
@@ -1240,6 +1228,8 @@ spec:
         port: 2379
         # -- ETCD service target port
         targetPort: 2379
+        # -- ETCD service labels
+        labels: {}
         # -- ETCD service pods selector
         selector:
           component: etcd
@@ -1278,6 +1268,8 @@ spec:
         port: 10259
         # -- KubeScheduler service target port
         targetPort: 10259
+        # -- KubeScheduler service labels
+        labels: {}
         # -- KubeScheduler service pod selector
         selector:
           component: kube-scheduler
@@ -1315,6 +1307,8 @@ spec:
         port: 10249
         # -- Kube proxy service target port
         targetPort: 10249
+        # -- Kube proxy service labels
+        labels: {}
         # -- Kube proxy service pod selector
         selector:
           k8s-app: kube-proxy
@@ -1336,4 +1330,3 @@ spec:
 
     # -- Add extra objects dynamically to this chart
     extraObjects: []
-
