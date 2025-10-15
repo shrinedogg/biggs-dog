@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: calibre
+  name: cwa
   namespace: media
   annotations:
     external-dns.alpha.kubernetes.io/hostname: biggs.dog
@@ -15,6 +15,6 @@ spec:
         pathType: Prefix
         backend: 
           service:
-            name: calibre-service
+            name: cwa-service
             port:
               number: 8083
