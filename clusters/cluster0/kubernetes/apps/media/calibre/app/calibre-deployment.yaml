@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: kavita
-  name: kavita
+    app: calibre
+  name: calibre
   namespace: media
 spec:
   template:
     metadata:
       labels:
-        app: kavita
+        app: calibre
     spec:
       nodeSelector:
         kubernetes.io/hostname: worker-03
       containers:
-        - image: jvmilazz0/kavita:latest
+        - image: lscr.io/linuxserver/calibre-web:latest
           imagePullPolicy: Always
-          name: kavita
+          name: calibre
           env:
           - name: TZ
             value: "Europe/Helsinki"
@@ -24,15 +24,17 @@ spec:
             value: "1000"
           - name: PGID
             value: "1000"
+          - name: DOCKER_MODS
+            value: "linuxserver/mods:universal-calibre"
           ports:
-          - name: kavita-port
-            containerPort: 5000
+          - name: calibre-port
+            containerPort: 8083
             protocol: TCP
           volumeMounts:
-          - name: kavita-config
-            mountPath: /kavita/config
+          - name: calibre-config
+            mountPath: /calibre/config
           - name: media-pvc
-            mountPath: /media
+            mountPath: /books
           resources:
             requests:
               memory: 350Mi
@@ -43,12 +45,12 @@ spec:
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       volumes:
-      - name: kavita-config
+      - name: calibre-config
         persistentVolumeClaim:
-          claimName: "kavita-config"
+          claimName: "calibre-config"
       - name: media-pvc
         persistentVolumeClaim:
           claimName: media-pvc
   selector:
     matchLabels:
-      app: kavita
+      app: calibre
