@@ -17,4 +17,5 @@ resources:
   - ./sonarr/ks.yaml
   - ./prowlarr/ks.yaml
   - ./ombi/ks.yaml
+  - ./calibre/ks.yaml
   
