@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: cwa-library
+  name: cwa-library-pvc
   namespace: media
   labels:
     app: cwa

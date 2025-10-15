@@ -35,7 +35,7 @@ spec:
           volumeMounts:
           - name: cwa-config
             mountPath: /cwa/config
-          - name: cwa-library
+          - name: cwa-library-pvc
             mountPath: /cwa/library
           - name: cwa-ingest-cache-pvc
             mountPath: /cwa-book-ingest
@@ -56,9 +56,9 @@ spec:
       - name: cwa-config
         persistentVolumeClaim:
           claimName: "cwa-config"
-      - name: cwa-library
+      - name: cwa-library-pvc
         persistentVolumeClaim:
-          claimName: "cwa-library"
+          claimName: "cwa-library-pvc"
       - name: cwa-ingest-cache-pvc  
         persistentVolumeClaim:
           claimName: "cwa-ingest-cache-pvc"
