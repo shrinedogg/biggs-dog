@@ -39,7 +39,7 @@ spec:
             mountPath: /cwa-book-ingest
           - name: cwa-plugins
             mountPath: /config/.config/calibre/plugins
-          - name: media-pvc
+          - name: books-pvc
             mountPath: /calibre-library
           resources:
             requests:
@@ -60,9 +60,9 @@ spec:
       - name: cwa-plugins
         persistentVolumeClaim:
           claimName: "cwa-plugins"
-      - name: media-pvc
+      - name: books-pvc
         persistentVolumeClaim:
-          claimName: media-pvc
+          claimName: books-pvc
   selector:
     matchLabels:
       app: cwa
