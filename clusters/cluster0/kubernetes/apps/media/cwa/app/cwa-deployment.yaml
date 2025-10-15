@@ -24,8 +24,8 @@ spec:
             value: "1000"
           - name: PGID
             value: "1000"
-          # - name: NETWORK_SHARE_MODE
-          #   value: "true"
+          - name: NETWORK_SHARE_MODE
+            value: "true"
           - name: CWA_PORT_OVERRIDE
             value: "8083"
           ports:
@@ -42,7 +42,7 @@ spec:
           - name: cwa-plugins
             mountPath: /config/.config/calibre/plugins
           - name: books-pvc
-            mountPath: /books
+            mountPath: /books/library
           resources:
             requests:
               memory: 350Mi
@@ -67,7 +67,7 @@ spec:
           claimName: "cwa-plugins"
       - name: books-pvc
         persistentVolumeClaim:
-          claimName: books-pvc
+          claimName: "books-pvc"
   selector:
     matchLabels:
       app: cwa
