@@ -41,8 +41,6 @@ spec:
             mountPath: /cwa-book-ingest
           - name: cwa-plugins
             mountPath: /config/.config/calibre/plugins
-          - name: books-pvc
-            mountPath: /books/library
           resources:
             requests:
               memory: 350Mi
@@ -65,9 +63,6 @@ spec:
       - name: cwa-plugins
         persistentVolumeClaim:
           claimName: "cwa-plugins"
-      - name: books-pvc
-        persistentVolumeClaim:
-          claimName: "books-pvc"
   selector:
     matchLabels:
       app: cwa

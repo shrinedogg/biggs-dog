@@ -4,7 +4,7 @@ metadata:
   name: cwa-ingest-cache-pv
 spec:
   capacity:
-    storage: 16Gi
+    storage: 100Gi
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
