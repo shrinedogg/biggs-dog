@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: calibre-config
+  name: cwa-plugins
   namespace: media
   labels:
-    app: calibre
+    app: cwa
 spec:
   accessModes:
    - ReadWriteOnce

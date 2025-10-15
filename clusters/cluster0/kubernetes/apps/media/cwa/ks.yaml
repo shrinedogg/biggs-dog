@@ -2,14 +2,14 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app calibre
+  name: &app cwa
   namespace: flux-system
 spec:
   targetNamespace: media
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: ./clusters/cluster0/kubernetes/apps/media/calibre/app/
+  path: ./clusters/cluster0/kubernetes/apps/media/cwa/app/
   prune: true
   sourceRef:
     kind: GitRepository
