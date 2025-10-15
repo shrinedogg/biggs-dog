@@ -37,7 +37,7 @@ spec:
             mountPath: /cwa/config
           - name: cwa-library
             mountPath: /cwa/library
-          - name: cwa-ingest-cache
+          - name: cwa-ingest-cache-pvc
             mountPath: /cwa-book-ingest
           - name: cwa-plugins
             mountPath: /config/.config/calibre/plugins
@@ -59,9 +59,9 @@ spec:
       - name: cwa-library
         persistentVolumeClaim:
           claimName: "cwa-library"
-      - name: cwa-ingest-cache
+      - name: cwa-ingest-cache-pvc  
         persistentVolumeClaim:
-          claimName: "cwa-ingest-cache"
+          claimName: "cwa-ingest-cache-pvc"
       - name: cwa-plugins
         persistentVolumeClaim:
           claimName: "cwa-plugins"
