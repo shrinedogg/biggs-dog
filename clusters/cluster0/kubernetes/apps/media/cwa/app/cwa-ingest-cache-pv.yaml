@@ -16,5 +16,5 @@ spec:
     - nconnect=16
     - nfsvers=4.2
   nfs:
-    path: /tank/media/books
+    path: /tank/library
     server: 192.168.2.30
