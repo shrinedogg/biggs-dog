@@ -24,8 +24,8 @@ spec:
             value: "1000"
           - name: PGID
             value: "1000"
-          - name: NETWORK_SHARE_MODE
-            value: "true"
+          # - name: NETWORK_SHARE_MODE
+          #   value: "true"
           - name: CWA_PORT_OVERRIDE
             value: "8083"
           ports:
