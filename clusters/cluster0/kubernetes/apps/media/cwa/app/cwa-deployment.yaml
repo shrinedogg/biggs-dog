@@ -14,7 +14,7 @@ spec:
       nodeSelector:
         kubernetes.io/hostname: worker-03
       containers:
-        - image: crocodilestick/calibre-web-automated:V3.1.4-DEV_BUILD-dev-169
+        - image: crocodilestick/calibre-web-automated:latest
           imagePullPolicy: Always
           name: cwa
           env:
