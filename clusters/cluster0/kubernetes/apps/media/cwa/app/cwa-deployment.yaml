@@ -34,12 +34,12 @@ spec:
             protocol: TCP
           volumeMounts:
           - name: cwa-config
-            mountPath: /cwa/config
+            mountPath: /config
           - name: cwa-library-pvc
-            mountPath: /cwa/library
+            mountPath: /calibre-library
           - name: cwa-ingest-cache-pvc
             mountPath: /cwa-book-ingest
-          - name: cwa-plugins
+          - name: cwa-plugins-pvc
             mountPath: /config/.config/calibre/plugins
           resources:
             requests:
@@ -60,9 +60,9 @@ spec:
       - name: cwa-ingest-cache-pvc  
         persistentVolumeClaim:
           claimName: "cwa-ingest-cache-pvc"
-      - name: cwa-plugins
+      - name: cwa-plugins-pvc
         persistentVolumeClaim:
-          claimName: "cwa-plugins"
+          claimName: "cwa-plugins-pvc"
   selector:
     matchLabels:
       app: cwa
