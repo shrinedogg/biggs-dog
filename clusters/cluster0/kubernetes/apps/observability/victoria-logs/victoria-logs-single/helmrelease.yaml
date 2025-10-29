@@ -5,7 +5,7 @@ metadata:
   name: victoria-logs-single
   namespace: observability
 spec:
-  interval: 30m
+  interval: 3m
   timeout: 3m
   chart:
     spec:

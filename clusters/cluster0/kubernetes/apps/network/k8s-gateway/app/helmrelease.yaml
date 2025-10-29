@@ -4,7 +4,7 @@ metadata:
   name: k8s-gateway
   namespace: kube-system
 spec:
-  interval: 5m
+  interval: 3m
   chart:
     spec:
       chart: k8s-gateway
