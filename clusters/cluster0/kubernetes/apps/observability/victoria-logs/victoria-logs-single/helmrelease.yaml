@@ -6,7 +6,7 @@ metadata:
   namespace: observability
 spec:
   interval: 3m
-  timeout: 1m
+  timeout: 2m
   chart:
     spec:
       chart: victoria-logs-single

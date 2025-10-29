@@ -17,7 +17,7 @@ spec:
   wait: true
   interval: 3m
   retryInterval: 1m
-  timeout: 1m
+  timeout: 2m
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -37,8 +37,10 @@ spec:
   wait: true
   interval: 3m
   retryInterval: 1m
-  timeout: 1m
+  timeout: 2m
   decryption:
     provider: sops
     secretRef:
       name: sops-age
+  dependsOn:
+    - name: external-secrets

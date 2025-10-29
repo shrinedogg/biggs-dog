@@ -19,4 +19,4 @@ spec:
   wait: false
   interval: 3m
   retryInterval: 1m
-  timeout: 1m
+  timeout: 2m
