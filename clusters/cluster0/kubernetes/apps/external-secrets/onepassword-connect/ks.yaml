@@ -17,7 +17,7 @@ spec:
   wait: false
   interval: 3m
   retryInterval: 1m
-  timeout: 3m
+  timeout: 1m
   decryption:
     provider: sops
     secretRef:
