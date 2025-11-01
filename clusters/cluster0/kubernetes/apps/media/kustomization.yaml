@@ -7,7 +7,6 @@ resources:
   - ./media-pv.yaml
   - ./media-pvc.yaml
   # Flux-Kustomizations
-  - ./ersatz/ks.yaml
   - ./homarr/ks.yaml
   - ./jellyfin/ks.yaml
   - ./kavita/ks.yaml
