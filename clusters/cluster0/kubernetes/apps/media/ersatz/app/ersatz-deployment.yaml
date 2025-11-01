@@ -42,8 +42,8 @@ spec:
               cpu: "6"
             requests:
               gpu.intel.com/i915: "1"
-              memory: 4Gi
-              cpu: 500m
+              memory: 6Gi
+              cpu: "2"
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       volumes:

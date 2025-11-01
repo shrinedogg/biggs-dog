@@ -1,16 +1,17 @@
 ---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: victoria-metrics
   namespace: observability
 spec:
-  interval: 30m
-  timeout: 15m
+  interval: 3m
+  timeout: 2m
   chart:
     spec:
       chart: victoria-metrics-k8s-stack
-      version: 0.60.1 
+      version: 0.61.6
       sourceRef:
         kind: HelmRepository
         name: victoria-metrics
@@ -308,16 +309,16 @@ spec:
         resources:
           limits:
             cpu: 1500m
-            memory: 3500Mi
+            memory: "3500Mi"
           requests:
-            cpu: 150m
-            memory: 500Mi
+            cpu: 500m
+            memory: "2000Mi"
         port: "8428"
         # -- Data retention period. Possible units character: h(ours), d(ays), w(eeks), y(ears), if no unit character specified - month. The minimum retention period is 24h. See these [docs](https://docs.victoriametrics.com/victoriametrics/single-server-victoriametrics/#retention)
-        retentionPeriod: "6w"
+        retentionPeriod: "1"
         replicaCount: 1
         extraArgs:
-          maxLabelsPerTimeseries: "130"
+          maxLabelsPerTimeseries: "150"
         storage:
           accessModes:
             - ReadWriteOnce
@@ -920,7 +921,7 @@ spec:
 
     # -- Grafana dependency chart configuration. For possible values refer [here](https://github.com/grafana/helm-charts/tree/main/charts/grafana#configuration)
     grafana:
-      enabled: true
+      enabled: false
       # all values for grafana helm chart can be specified here
       sidecar:
         datasources:
@@ -935,17 +936,6 @@ spec:
           defaultFolderName: default
           enabled: true
           multicluster: false
-      # additionalDataSources:
-      #     # <string, required> name of the datasource. Required
-      #   - name: loki
-      #     # <string, required> datasource type. Required
-      #     type: loki
-      #     uid: loki
-      #     # <string, required> access mode. proxy or direct (Server or Browser in the UI). Required
-      #     access: proxy
-      #     # <string> url
-      #     url: http://loki.observability.svc.cluster.local:3100
-      # all values for grafana helm chart can be specified here
 
       # -- Create datasource configmap even if grafana deployment has been disabled
       forceDeployDatasource: false
@@ -953,19 +943,19 @@ spec:
       # Uncomment the block below, if you want to enable VictoriaMetrics Datasource in Grafana:
       # Note that Grafana will need internet access to install the datasource plugin.
       #
-      plugins:
-      - victoriametrics-metrics-datasource
-      - victoriametrics-logs-datasource
+      # plugins:
+      # - victoriametrics-metrics-datasource
+      # - victoriametrics-logs-datasource
 
       ingress:
-        enabled: true
+        enabled: false
         # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
         # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
-        ingressClassName: external
+        # ingressClassName: nginx
         # Values can be templated
         annotations:
-          # {}
-          # kubernetes.io/ingress.class nginx
+          {}
+          # kubernetes.io/ingress.class: nginx
           # kubernetes.io/tls-acme: "true"
         labels: {}
         path: /
@@ -1145,6 +1135,8 @@ spec:
         port: 10257
         # -- Kube controller manager service target port
         targetPort: 10257
+        # -- Kube controller manager service labels
+        labels: {}
         # -- Kube controller manager service pod selector
         selector:
           component: kube-controller-manager
@@ -1173,6 +1165,8 @@ spec:
       service:
         # -- Create Service for KubeDNS metrics
         enabled: false
+        # -- KubeDNS service labels
+        labels: {}
         # -- KubeDNS service ports
         ports:
           dnsmasq:
@@ -1207,6 +1201,8 @@ spec:
         port: 9153
         # -- CoreDNS service target port
         targetPort: 9153
+        # -- CoreDNS service labels
+        labels: {}
         # -- CoreDNS service pod selector
         selector:
           k8s-app: kube-dns
@@ -1240,6 +1236,8 @@ spec:
         port: 2379
         # -- ETCD service target port
         targetPort: 2379
+        # -- ETCD service labels
+        labels: {}
         # -- ETCD service pods selector
         selector:
           component: etcd
@@ -1278,6 +1276,8 @@ spec:
         port: 10259
         # -- KubeScheduler service target port
         targetPort: 10259
+        # -- KubeScheduler service labels
+        labels: {}
         # -- KubeScheduler service pod selector
         selector:
           component: kube-scheduler
@@ -1315,6 +1315,8 @@ spec:
         port: 10249
         # -- Kube proxy service target port
         targetPort: 10249
+        # -- Kube proxy service labels
+        labels: {}
         # -- Kube proxy service pod selector
         selector:
           k8s-app: kube-proxy
@@ -1336,4 +1338,3 @@ spec:
 
     # -- Add extra objects dynamically to this chart
     extraObjects: []
-
