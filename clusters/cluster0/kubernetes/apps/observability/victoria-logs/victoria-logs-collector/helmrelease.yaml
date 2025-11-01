@@ -5,8 +5,8 @@ metadata:
   name: victoria-logs-collector
   namespace: observability
 spec:
-  interval: 30m
-  timeout: 15m
+  interval: 3m
+  timeout: 2m
   chart:
     spec:
       chart: victoria-logs-collector

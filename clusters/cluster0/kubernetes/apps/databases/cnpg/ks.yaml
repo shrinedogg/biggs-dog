@@ -15,9 +15,9 @@ spec:
     kind: GitRepository
     name: flux-system
   wait: true
-  interval: 10m
+  interval: 3m
   retryInterval: 1m
-  timeout: 5m
+  timeout: 2m
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -37,9 +37,9 @@ spec:
     kind: GitRepository
     name: flux-system
   wait: true
-  interval: 10m
+  interval: 3m
   retryInterval: 1m
-  timeout: 5ms
+  timeout: 2m
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -59,7 +59,7 @@ spec:
     kind: GitRepository
     name: flux-system
   wait: true
-  interval: 10m
+  interval: 3m
   retryInterval: 1m
-  timeout: 5ms
+  timeout: 2m
 
