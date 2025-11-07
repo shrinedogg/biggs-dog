@@ -84,9 +84,6 @@ spec:
           - name: worker-02
             devices:
               - name: /dev/vgroot/lvceph
-          - name: worker-03
-            devices:
-              - name: /dev/vgroot/lvceph
         config:
           osdsPerDevice: "1"
 
