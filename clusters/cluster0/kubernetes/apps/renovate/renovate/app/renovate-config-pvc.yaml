@@ -11,5 +11,5 @@ spec:
   resources:
     requests:
       storage: 1G
-  storageClassName: local-path
+  storageClassName: ceph-block
   
