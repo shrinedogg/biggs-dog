@@ -73,9 +73,10 @@ spec:
             memory: 2Gi
       storage:
         useAllNodes: true
-        useAllDevices: true
-        config:
-          osdsPerDevice: "1"
+      devices:
+        - name: "vgroot-lvceph"
+          config:
+            osdsPerDevice: "1"
 
     ingress:
       dashboard:
