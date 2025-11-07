@@ -8,7 +8,7 @@ resources:
   - nfd-repo.yaml
   - k8s-gateway-repo.yaml
   - cert-manager-repo.yaml
-  - velero.yaml
   - external-secrets-repo.yaml
   - onepass-repo.yaml
-  - grafana-operator-oci.yaml
+  - grafana-operator-repo.yaml
+  - rook-ceph-repo.yaml

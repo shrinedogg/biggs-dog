@@ -4,19 +4,19 @@ kind: Kustomization
 resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
-  - ./media-pv.yaml
-  - ./media-pvc.yaml
+  # - ./media-pv.yaml
+  # - ./media-pvc.yaml
   # Flux-Kustomizations
   - ./ersatz/ks.yaml
-  - ./homarr/ks.yaml
-  - ./jellyfin/ks.yaml
+  # - ./homarr/ks.yaml
+  # - ./jellyfin/ks.yaml
   - ./kavita/ks.yaml
-  - ./radarr/ks.yaml
-  - ./readarr/ks.yaml
-  - ./sabnzbd/ks.yaml
-  - ./sonarr/ks.yaml
-  - ./prowlarr/ks.yaml
-  - ./ombi/ks.yaml
+  # - ./radarr/ks.yaml
+  # - ./readarr/ks.yaml
+  # - ./sabnzbd/ks.yaml
+  # - ./sonarr/ks.yaml
+  # - ./prowlarr/ks.yaml
+  # - ./ombi/ks.yaml
   - ./cwa/ks.yaml
   - ./emby/ks.yaml
   

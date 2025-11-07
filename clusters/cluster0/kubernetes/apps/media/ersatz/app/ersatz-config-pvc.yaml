@@ -4,9 +4,9 @@ metadata:
   name: ersatz-config-pvc
   namespace: media
 spec:
-  storageClassName: local-path
+  storageClassName: ceph-block
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 3Gi
+      storage: 10Gi

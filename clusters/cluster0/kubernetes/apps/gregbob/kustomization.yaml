@@ -6,5 +6,5 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   - ./biggs/ks.yaml
-  - ./gregbob/ks.yaml
+  # - ./gregbob/ks.yaml
   
