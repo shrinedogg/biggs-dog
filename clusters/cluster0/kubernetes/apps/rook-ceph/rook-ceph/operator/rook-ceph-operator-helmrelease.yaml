@@ -24,8 +24,8 @@ spec:
       enableCephfsDriver: false
       enableCephfsSnapshotter: false
       enableLiveness: true
-      serviceMonitor:
-        enabled: true
+      # serviceMonitor:
+      #   enabled: true  # broken in v1.18.6
     enableDiscoveryDaemon: true
     monitoring:
       enabled: true
