@@ -74,7 +74,7 @@ spec:
       storage:
         useAllNodes: true
       devices:
-        - name: "/dev/mapper/vgroot-lvceph"
+        - name: "/dev/vgroot/lvceph"
           config:
             osdsPerDevice: "1"
 
