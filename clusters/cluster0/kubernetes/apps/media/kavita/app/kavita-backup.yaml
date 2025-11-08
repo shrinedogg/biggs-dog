@@ -2,27 +2,27 @@
 apiVersion: external-secrets.io/v1
 kind: ExternalSecret
 metadata:
-    name: b2-backup-ersatz
+    name: b2-backup-kavita
     namespace: kube-system
 spec:
     secretStoreRef:
         kind: ClusterSecretStore
         name: onepassword-connect
     target:
-        name: b2-backup-ersatz
+        name: b2-backup-kavita
         creationPolicy: Owner
     data:
         - secretKey: B2_ACCOUNT_ID
           remoteRef:
-            key: b2-backup-ersatz
+            key: b2-backup-kavita
             property: keyID
         - secretKey: B2_ACCOUNT_KEY
           remoteRef:
-            key: b2-backup-ersatz
+            key: b2-backup-kavita
             property: applicationKey
         - secretKey: RESTIC_REPOSITORY
           remoteRef:
-            key: b2-backup-ersatz
+            key: b2-backup-kavita
             property: repository
         - secretKey: RESTIC_PASSWORD
           remoteRef:
@@ -32,15 +32,15 @@ spec:
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
-   name: ersatz-backup-source
+   name: kavita-backup-source
    namespace: source
 spec:
-   sourcePVC: ersatz-config-pvc
+   sourcePVC: kavita-config
    trigger:
       schedule: "0 * * * *"  # Every hour
    restic:
      pruneIntervalDays: 60  # Retain backups for 60 days
-     repository: b2-backup-ersatz
+     repository: b2-backup-kavita
      retain:
        hourly: 3
        daily: 2
