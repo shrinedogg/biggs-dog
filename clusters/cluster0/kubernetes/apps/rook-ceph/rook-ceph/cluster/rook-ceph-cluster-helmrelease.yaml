@@ -75,27 +75,24 @@ spec:
         useAllNodes: false
         useAllDevices: false
         nodes:
-          - name: control-01
+          - name: "control-01"
             devices:
-              - name: /dev/vgroot/lvceph
-          - name: worker-01
+              - name: "/dev/mapper/vgroot-lvceph"
+          - name: "worker-01"
             devices:
-              - name: /dev/vgroot/lvceph
-          - name: worker-02
+              - name: "/dev/mapper/vgroot-lvceph"
+          - name: "worker-02"
             devices:
-              - name: /dev/vgroot/lvceph
+              - name: "/dev/mapper/vgroot-lvceph"
         config:
           osdsPerDevice: "1"
 
     ingress:
       dashboard:
         host:
-          name: &host "rook-ceph.biggs.dog"
+          name: "rook-ceph.biggs.dog"
           path: "/"
           pathType: Prefix
-        tls:
-        - hosts:
-            - *host
         ingressClassName: external
 
     cephBlockPools:
