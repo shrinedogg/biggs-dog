@@ -3,8 +3,8 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: rook-ceph
+  name: volsync
   namespace: flux-system
 spec:
-  interval: 1h
-  url: https://charts.rook.io/release/
+  interval: 12h
+  url: https://backube.github.io/helm-charts/

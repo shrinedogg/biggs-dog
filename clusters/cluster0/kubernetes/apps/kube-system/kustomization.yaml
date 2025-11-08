@@ -5,3 +5,5 @@ resources:
   - ./nfd/ks.yaml
   - ./nfs/ks.yaml
   - ./intel-gpu-plugin/ks.yaml
+  - ./snapshot-controller/ks.yaml
+  - ./volsync/ks.yaml
