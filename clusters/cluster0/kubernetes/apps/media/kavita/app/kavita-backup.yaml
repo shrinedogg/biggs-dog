@@ -3,7 +3,7 @@ apiVersion: external-secrets.io/v1
 kind: ExternalSecret
 metadata:
     name: b2-backup-kavita
-    namespace: kube-system
+    namespace: media
 spec:
     secretStoreRef:
         kind: ClusterSecretStore
@@ -33,7 +33,7 @@ apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
    name: kavita-backup-source
-   namespace: source
+   namespace: media
 spec:
    sourcePVC: kavita-config
    trigger:
