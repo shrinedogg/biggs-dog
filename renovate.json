@@ -3,5 +3,8 @@
   "extends": [
     "config:recommended",
     ":dependencyDashboard"
-  ]
+  ],
+  "helm": {
+    "fileMatch": ["(^|/)[^/]*-?helmrelease\\.ya?ml$"]
+  }
 }
