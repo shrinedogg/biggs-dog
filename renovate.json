@@ -4,7 +4,9 @@
     "config:recommended",
     ":dependencyDashboard"
   ],
-  "helm": {
-    "fileMatch": ["(^|/)[^/]*-?helmrelease\\.ya?ml$"]
+  "flux": {
+    "fileMatch": [
+      "(^|/)[^/]*-?helmrelease\\.ya?ml$"
+    ]
   }
 }
