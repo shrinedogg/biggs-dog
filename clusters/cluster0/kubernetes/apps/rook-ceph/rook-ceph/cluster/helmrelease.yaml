@@ -75,18 +75,15 @@ spec:
         useAllNodes: false
         useAllDevices: false
         nodes:
-          - name: control-01
+          - name: worker-00
             devices:
-              - name: /dev/mapper/vgroot-lvceph
+              - name: /dev/mapper/ubuntu-vg-lvceph
           - name: worker-01
             devices:
-              - name: /dev/mapper/vgroot-lvceph
-          - name: worker-02
+              - name: /dev/mapper/ubuntu-vg-lvceph
+          - name: worker-05
             devices:
-              - name: /dev/mapper/vgroot-lvceph
-          - name: worker-03
-            devices:
-              - name: /dev/mapper/vgroot-lvceph
+              - name: /dev/mapper/ubuntu-vg-lvceph
         config:
           osdsPerDevice: "1"
 
