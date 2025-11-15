@@ -77,13 +77,13 @@ spec:
         nodes:
           - name: worker-00
             devices:
-              - name: /dev/mapper/ubuntu-vg-lvceph
+              - name: /dev/mapper/ubuntu--vg-lvceph
           - name: worker-01
             devices:
-              - name: /dev/mapper/ubuntu-vg-lvceph
-          - name: worker-05
+              - name: /dev/mapper/ubuntu--vg-lvceph
+          - name: worker-05s
             devices:
-              - name: /dev/mapper/ubuntu-vg-lvceph
+              - name: /dev/mapper/ubuntu--vg-lvceph
         config:
           osdsPerDevice: "1"
 
