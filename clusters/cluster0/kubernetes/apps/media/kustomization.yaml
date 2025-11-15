@@ -4,8 +4,8 @@ kind: Kustomization
 resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
-  - ./media-pv.yaml
-  - ./media-pvc.yaml
+  # - ./media-pv.yaml
+  # - ./media-pvc.yaml
   # Flux-Kustomizations
   - ./homarr/ks.yaml
   - ./jellyfin/ks.yaml
@@ -17,3 +17,4 @@ resources:
   - ./prowlarr/ks.yaml
   - ./ombi/ks.yaml
   - ./plex/ks.yaml 
+  - ./media-storage/ks.yaml  

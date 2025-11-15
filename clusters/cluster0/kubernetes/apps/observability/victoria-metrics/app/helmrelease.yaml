@@ -11,7 +11,7 @@ spec:
   chart:
     spec:
       chart: victoria-metrics-k8s-stack
-      version: 0.61.6
+      version: 0.63.4
       sourceRef:
         kind: HelmRepository
         name: victoria-metrics
@@ -39,9 +39,9 @@ spec:
         dnsDomain: cluster.local.
 
     # -- Override chart name
-    nameOverride: "vm"
+    nameOverride: ""
     # -- Resource full name override
-    fullnameOverride: ""
+    fullnameOverride: "stack"
     # -- Tenant to use for Grafana datasources and remote write
     tenant: "0"
     # -- If this chart is used in "Argocd" with "releaseName" field then
@@ -1105,6 +1105,7 @@ spec:
               port: https
               scheme: https
               tlsConfig:
+                insecureSkipVerify: true
                 caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
                 serverName: kubernetes
           jobLabel: component
@@ -1155,6 +1156,7 @@ spec:
               port: http-metrics
               scheme: https
               tlsConfig:
+                insecureSkipVerify: true
                 caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
                 serverName: kubernetes
 
@@ -1255,6 +1257,7 @@ spec:
               port: http-metrics
               scheme: https
               tlsConfig:
+                insecureSkipVerify: true
                 caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
 
     # Component scraping kube scheduler
@@ -1295,6 +1298,7 @@ spec:
               port: http-metrics
               scheme: https
               tlsConfig:
+                insecureSkipVerify: true
                 caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
 
     # Component scraping kube proxy
@@ -1334,6 +1338,7 @@ spec:
               port: http-metrics
               scheme: https
               tlsConfig:
+                insecureSkipVerify: true
                 caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
 
     # -- Add extra objects dynamically to this chart

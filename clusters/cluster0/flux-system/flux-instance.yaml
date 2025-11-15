@@ -44,7 +44,7 @@ spec:
                 operator: "Exists"
   sync:
     kind: GitRepository
-    url: "https://github.com/midilicious/biggs-sz.git"
+    url: "https://github.com/federationspace/biggs-sz.git"
     ref: "refs/heads/main"
     path: "clusters/cluster0"
     pullSecret: "flux-system"
