@@ -12,5 +12,6 @@ resources:
   - onepass-repo.yaml
   - grafana-operator-repo.yaml
   - rook-ceph-repo.yaml
+  - gitea-repo.yaml
   - volsync-repo.yaml
   - snapshot-controller-repo.yaml
