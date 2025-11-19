@@ -5,8 +5,8 @@
     ":dependencyDashboard"
   ],
   "flux": {
-    "fileMatch": [
-      "(^|/)[^/]*-?helmrelease\\.ya?ml$"
+    "managerFilePatterns": [
+      "/(^|/)[^/]*-?helmrelease\\.ya?ml$/"
     ]
   }
 }
