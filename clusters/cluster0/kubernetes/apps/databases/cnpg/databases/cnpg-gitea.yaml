@@ -1,21 +1,21 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: cnpg-ombi
+  name: cnpg-gitea
   namespace: cnpg-system
 spec:
   # enableSuperuserAccess: true
   # superuserSecret:
-  #   name: ombi-superuser-password
+  #   name: gitea-superuser-password
   instances: 1
   bootstrap:
     initdb:
-      database: ombi
-      owner: ombi
+      database: gitea
+      owner: gitea
       dataChecksums: true
       secret:
-        name: ombi-user-password
-  imageName: ghcr.io/cloudnative-pg/postgresql:16.6
+        name: gitea-user-password
+  imageName: ghcr.io/cloudnative-pg/postgresql:18.0
   resources:
     requests:
       memory: 300Mi
@@ -24,4 +24,4 @@ spec:
       memory: 300Mi
       cpu: 150m
   storage:
-    size: 5Gi
+    size: 20Gi
