@@ -5,7 +5,7 @@
     ":semanticCommits",
     ":disableRateLimiting",
     "github>shrinedogg/biggs-dog//.github/renovate/groups.json",
-    "github>shrinedogg/biggs-dog//.github/renovate/flux.json",
+    "github>shrinedogg/biggs-dog//.github/renovate/flux.json"
   ],
   "dependencyDashboardTitle": "Renovate Dashboard 🤖",
   "reviewers": ["shrinedogg"],
