@@ -8,5 +8,13 @@
     "managerFilePatterns": [
       "/(^|/)[^/]*-?helmrelease\\.ya?ml$/"
     ]
-  }
+  },
+  "customType": "regex",
+  "fileMatch": [
+    "(^|/)helmrelease\\.ya?ml$"
+  ],
+  "matchStrings": [
+    "registryUrl:\\s+(?<registryUrl>[^\\s]*?)\\s+chart:\\s+(?<depName>[^\\s]*?)\\s+version:\\s+\"(?<currentValue>[^\"]*?)\""
+  ],
+  "datasourceTemplate": "helm"
 }
