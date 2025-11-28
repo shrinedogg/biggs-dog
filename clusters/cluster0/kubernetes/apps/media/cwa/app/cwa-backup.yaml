@@ -37,12 +37,12 @@ metadata:
 spec:
    sourcePVC: cwa-config
    trigger:
-      schedule: "0 * * * *"  # Every hour
+      schedule: "0 */12 * * *"  # Every hour
    restic:
      pruneIntervalDays: 60  # Retain backups for 60 days
      repository: b2-backup-cwa
      retain:
-       hourly: 3
+       hourly: 2
        daily: 2
        weekly: 1
        monthly: 1
