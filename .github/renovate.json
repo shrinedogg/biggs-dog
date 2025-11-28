@@ -1,0 +1,25 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":semanticCommits",
+    ":disableRateLimiting",
+    "github>shrinedogg/biggs-dog//.github/renovate/groups.json",
+    "github>shrinedogg/biggs-dog//.github/renovate/flux.json",
+  ],
+  "dependencyDashboardTitle": "Renovate Dashboard 🤖",
+  "reviewers": ["shrinedogg"],
+  "timezone": "Europe/Zurich",
+  "flux": {
+    "managerFilePatterns": ["/(^|/)clusters/cluster0/kubernetes/.+\\.ya?ml$/"]
+  },
+  "helm-values": {
+    "managerFilePatterns": ["/(^|/)clusters/cluster0/kubernetes/.+\\.ya?ml$/"]
+  },
+  "kubernetes": {
+    "managerFilePatterns": ["/(^|/)clusters/cluster0/kubernetes/.+\\.ya?ml$/"]
+  },
+  "pre-commit": {
+    "enabled": true
+  }
+}
